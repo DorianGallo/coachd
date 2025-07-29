@@ -3356,7 +3356,7 @@
 }
 
 .modular-pricing-04-item.coaching {
-  padding-bottom: 6em;
+  padding-bottom: 4.75em;
 }
 
 .modular-tabs-content {
@@ -8726,6 +8726,17 @@
   #w-node-_3c209005-b730-0ae9-0663-e96b4f6d4917-39969538 {
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
+
+  .modular-container.pasos .text-block-4,
+  .modular-container.pasos .heading-2,
+  .modular-container.pasos .text-block-5 {
+    margin-bottom: 1em;
+  }
+  /* Remove margin from last .text-block-5 if needed */
+  .modular-container.pasos .proceso-inscripcion > .text-block-5:last-child {
+    margin-bottom: 0;
+  }
+
 }
 
 

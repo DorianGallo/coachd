@@ -1,772 +1,1217 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sat Jul 26 2025 12:08:36 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="6876d84f7e2c06b639969538" data-wf-site="6876c7fd8f3c26c5de4e06cd">
-<head>
-  <meta charset="utf-8">
-  <title>Programas y servicios</title>
-  <meta content="Programas y servicios" property="og:title">
-  <meta content="Programas y servicios" property="twitter:title">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
-  <link href="css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="css/dorians-sublime-site-c8cd93.webflow.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-  <script type="text/javascript">WebFont.load({  google: {    families: ["IBM Plex Sans:100,200,300,regular,500,600,700"]  }});</script>
-  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
-  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
-  <link href="images/webclip.png" rel="apple-touch-icon">
-</head>
-<body>
-  <div data-w-id="d5b15790-7192-5b17-0cd5-aebca29b9e0b" class="div-block-15">
-    <div data-w-id="55bfe4c0-9fe6-f9a1-76ad-0a2921a790a3" class="div-block-16"></div>
-    <div class="div-block-17"><img src="images/close.png" loading="lazy" width="25" data-w-id="495b63dd-5df9-e899-9cee-a02555833625" alt="" srcset="images/close-p-500.png 500w, images/close-p-800.png 800w, images/close.png 1080w" sizes="(max-width: 767px) 25px, (max-width: 991px) 3vw, (max-width: 1919px) 25px, 1vw" class="image-11">
-      <div class="w-embed w-script">
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>n8n Chat Embed</title>
-          <script src="https://cdn.tailwindcss.com"></script>
-          <style>
-        body { font-family: 'Inter', sans-serif; }
-        .bg-primary-bg { background-color: #ffffff; }
-        .bg-secondary-bg { background-color: #f3f7fa; }
-        .shadow-custom { box-shadow: 0 4px 6px -1px rgba(76, 122, 148, 0.1), 0 2px 4px -1px rgba(76, 122, 148, 0.06); }
-        .text-main { color: #3c4559; }
-        .text-button-title { color: #57946e; }
-        .bg-button-title { background-color: #57946e; }
-        .border-button-title { border-color: #57946e; }
-        .bg-agent-bubble { background-color: #4c7a94; }
-        .border-shadows { border-color: #4c7a94; }
-        .chat-container {
-            width: 250px;
-        }
-        @media (min-width: 480px) {
-            .chat-container {
-                width: 350px;
-            }
-        }
-    </style>
-        </head>
-        <body class="bg-primary-bg flex items-center justify-center min-h-screen p-4">
-          <div class="chat-container bg-secondary-bg rounded-lg shadow-custom flex flex-col overflow-hidden border border-button-title">
-            <div class="p-4 bg-button-title text-white text-lg font-bold rounded-t-lg">
-              <h2 class="text-center">Soporte al Cliente</h2>
-            </div>
-            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 min-h-[300px] max-h-[500px] text-main">
-              <div class="flex justify-start">
-                <div class="bg-agent-bubble text-white p-3 rounded-lg max-w-[75%] shadow-sm">
-                  Hola! 👋<br>
-                  Me llamo Juliana, soy tu agente de soporte al cliente IA. ¿Cómo puedo ayudarte hoy?
-                </div>
-              </div>
-            </div>
-            <div class="p-4 border-t border-gray-200 flex flex-col md:flex-row items-center bg-white rounded-b-lg">
-              <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." class="w-full md:flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-button-title mb-2 md:mb-0 md:mr-2 text-main">
-              <button id="sendButton" class="w-full md:w-auto bg-button-title text-white p-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors duration-200 shadow-md">
-                Enviar
-              </button>
-            </div>
-          </div>
-          <script>
-        const chatInput = document.getElementById('chatInput');
-        const sendButton = document.getElementById('sendButton');
-        const chatMessages = document.getElementById('chatMessages');
-        // ✅ Use HTTPS
-        const n8nWebhookUrl = 'https://chat.coachdmethod.com/webhook/5505f05b-5b31-4bee-8019-396344918561/chat';
-        function appendMessage(message, isUser) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('flex', isUser ? 'justify-end' : 'justify-start');
-            const messageBubble = document.createElement('div');
-            messageBubble.classList.add(
-                'p-3',
-                'rounded-lg',
-                'max-w-[75%]',
-                'shadow-sm',
-                isUser ? 'bg-white text-main border border-shadows' : 'bg-agent-bubble text-white'
-            );
-            messageBubble.textContent = message;
-            messageDiv.appendChild(messageBubble);
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        async function sendMessage() {
-            const message = chatInput.value.trim();
-            if (!message) return;
-            chatInput.disabled = true;
-            sendButton.disabled = true;
-            sendButton.textContent = 'Enviando...';
-            appendMessage(message, true);
-            chatInput.value = '';
-            try {
-                const response = await fetch(n8nWebhookUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: message })
-                });
-                console.log('Status:', response.status);
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('Respuesta:', data);
-                    const botReply = data.response || "Gracias por tu mensaje.";
-                    appendMessage(botReply, false);
-                } else {
-                    const errorText = await response.text();
-                    console.error('Error:', errorText);
-                    appendMessage("No se pudo conectar al servicio. Intenta más tarde.", false);
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                appendMessage("Error de red. Verifica tu conexión.", false);
-            } finally {
-                chatInput.disabled = false;
-                sendButton.disabled = false;
-                sendButton.textContent = 'Enviar';
-                chatInput.focus();
-            }
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            sendButton.addEventListener('click', sendMessage);
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') sendMessage();
-            });
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        });
+<!DOCTYPE html>
+<!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sat Jul 26 2025 12:08:36 GMT+0000 (Coordinated Universal Time)  -->
+<html
+  data-wf-page="6876d84f7e2c06b639969538"
+  data-wf-site="6876c7fd8f3c26c5de4e06cd"
+>
+  <head>
+    <meta charset="utf-8" />
+    <title>Programas y servicios</title>
+    <meta content="Programas y servicios" property="og:title" />
+    <meta content="Programas y servicios" property="twitter:title" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Webflow" name="generator" />
+<meta http-equiv="Content-Security-Policy" content="
+  script-src 'self' 'unsafe-eval' 'unsafe-inline'
+    https://cdn.jsdelivr.net
+    https://chat.coachdmethod.com
+    https://ajax.googleapis.com
+    https://d3e54v103j8qbb.cloudfront.net;
+">
+    <link href="css/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="css/webflow.css" rel="stylesheet" type="text/css" />
+    <link
+      href="css/dorians-sublime-site-c8cd93.webflow.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link
+      href="https://fonts.gstatic.com"
+      rel="preconnect"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      WebFont.load({
+        google: { families: ["IBM Plex Sans:100,200,300,regular,500,600,700"] },
+      });
     </script>
-        </body>
-        </html>
-      </div>
-    </div>
-  </div>
-  <div class="servicios">
-    <div mdlfy-content="component" class="m-nav-wrap">
-      <div data-animation="default" class="rl_navbar1_component-2 _2 w-nav" data-easing2="ease" fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium" data-w-id="04bf1c10-a7a8-0b06-3d2d-64533bb76b1c" role="banner" data-duration="400">
-        <div><img src="images/Coach-D-Logo.png" loading="lazy" width="50" alt="" class="rl_navbar1_logo-2"></div>
-        <div class="rl_navbar1_container-2">
-          <a href="#" class="rl_navbar1_logo-link-2 w-nav-brand"></a>
-          <nav role="navigation" class="rl_navbar1_menu-2 is-page-height-tablet w-nav-menu">
-            <a href="index.html" class="rl_navbar1_link-2 w-nav-link">Home</a>
-            <a href="#biografia" class="rl_navbar1_link-2 w-nav-link">Sobre</a>
-            <a href="#metodo" class="rl_navbar1_link-2 w-nav-link">Metodo</a>
-            <a href="#programas" class="rl_navbar1_link-2 w-nav-link">Programas</a>
-            <a href="#inscripcion" class="rl_navbar1_link-2 w-nav-link">Inscripcion</a>
-            <a href="#coach" class="rl_navbar1_link-2 w-nav-link">Coach D</a>
-            <a href="#pagos" class="rl_navbar1_link-2 w-nav-link">Pago</a>
-            <a href="#consulta" class="rl_navbar1_link-2 w-nav-link">Consulta</a>
-            <a href="https://coachdmethod.helpsite.com/contact" target="_blank" class="rl_navbar1_link-2 w-nav-link">Contacto</a>
-          </nav>
-          <div class="rl_navbar1_menu-button-2 w-nav-button">
-            <div class="rl_menu-icon-2">
-              <div class="rl_menu-icon_line-top-2"></div>
-              <div class="rl_menu-icon_line-middle-2">
-                <div class="rl_menu-icon_line-middle-inner-3"></div>
-              </div>
-              <div class="rl_menu-icon_line-bottom-2"></div>
-            </div>
-          </div>
+    <script type="text/javascript">
+      !(function (o, c) {
+        var n = c.documentElement,
+          t = " w-mod-";
+        (n.className += t + "js"),
+          ("ontouchstart" in o ||
+            (o.DocumentTouch && c instanceof DocumentTouch)) &&
+            (n.className += t + "touch");
+      })(window, document);
+    </script>
+    <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="images/webclip.png" rel="apple-touch-icon" />
+  </head>
+  <body>
+
         </div>
       </div>
-      <div class="modular-nav"></div>
     </div>
-    <div mdlfy-content="component" class="modular-hero-wrapper">
-      <div class="modular-container hero small">
-        <div class="modular-hero-15-small-content hero program">
-          <div class="modular-grid-relative-content">
-            <div class="modular-vertical-flex hero _2">
-              <div class="modular-hero-anim-load-1st">
-                <div class="modular-hero-15-title-wrap">
-                  <h1 class="modular-hero-heading hero">Programas y
-                    servicios</h1>
+    <div class="servicios">
+      <div mdlfy-content="component" class="m-nav-wrap">
+        <div
+          data-animation="default"
+          class="rl_navbar1_component-2 _2 w-nav"
+          data-easing2="ease"
+          fs-scrolldisable-element="smart-nav"
+          data-easing="ease"
+          data-collapse="medium"
+          data-w-id="04bf1c10-a7a8-0b06-3d2d-64533bb76b1c"
+          role="banner"
+          data-duration="400"
+        >
+          <div>
+            <img
+              src="images/Coach-D-Logo.png"
+              loading="lazy"
+              width="50"
+              alt=""
+              class="rl_navbar1_logo-2"
+            />
+          </div>
+          <div class="rl_navbar1_container-2">
+            <a href="#" class="rl_navbar1_logo-link-2 w-nav-brand"></a>
+            <nav
+              role="navigation"
+              class="rl_navbar1_menu-2 is-page-height-tablet w-nav-menu"
+            >
+              <a href="index.html" class="rl_navbar1_link-2 w-nav-link">Home</a>
+              <a href="#biografia" class="rl_navbar1_link-2 w-nav-link"
+                >Sobre</a
+              >
+              <a href="#metodo" class="rl_navbar1_link-2 w-nav-link">Metodo</a>
+              <a href="#programas" class="rl_navbar1_link-2 w-nav-link"
+                >Programas</a
+              >
+              <a href="#inscripcion" class="rl_navbar1_link-2 w-nav-link"
+                >Inscripcion</a
+              >
+              <a href="#coach" class="rl_navbar1_link-2 w-nav-link">Coach D</a>
+              <a href="#pagos" class="rl_navbar1_link-2 w-nav-link">Pago</a>
+              <a href="#consulta" class="rl_navbar1_link-2 w-nav-link"
+                >Consulta</a
+              >
+              <a
+                href="https://coachdmethod.helpsite.com/contact"
+                target="_blank"
+                class="rl_navbar1_link-2 w-nav-link"
+                >Contacto</a
+              >
+            </nav>
+            <div class="rl_navbar1_menu-button-2 w-nav-button">
+              <div class="rl_menu-icon-2">
+                <div class="rl_menu-icon_line-top-2"></div>
+                <div class="rl_menu-icon_line-middle-2">
+                  <div class="rl_menu-icon_line-middle-inner-3"></div>
                 </div>
-              </div>
-              <div id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c42a5-39969538" class="modular-hero-anim-load-2nd">
-                <p class="modular-hero-description hero _2">Descubre la metodología creada para transformar tu salud, tu cuerpo y tu vida para siempre.</p>
-              </div>
-              <div class="modular-margin-top-auto">
-                <div class="modular-margin-top">
-                  <div class="modular-hero-cta-wrap">
-                    <div>
-                      <a href="https://coachd-booking.short.gy/Formulario%20KYC" target="_blank" class="modular-button hero-sm w-inline-block">
-                        <p class="modular-simple-text hero">Consulta</p><img width="16" sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw" alt="" src="images/Arrow-white-1.png" loading="lazy" srcset="images/Arrow-white-1-p-500.png 500w, images/Arrow-white-1-p-800.png 800w, images/Arrow-white-1.png 1080w" class="modular-button-icon">
-                        <div class="modular-button-bg"></div>
-                      </a>
-                    </div>
-                    <div>
-                      <a data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c42db" href="#" class="modular-button-secondary hero w-inline-block">
-                        <div class="modular-button-2-bg"></div>
-                        <p class="modular-simple-text small-text hero">Saber Más</p><img sizes="(max-width: 1080px) 100vw, 1080px" srcset="images/Arrow-green-1-p-500.png 500w, images/Arrow-green-1-p-800.png 800w, images/Arrow-green-1.png 1080w" alt="" src="images/Arrow-green-1.png" loading="lazy" class="modular-button-icon">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modular-hero-anim-load-3rd">
-                <div class="modular-hero-cta-wrap left-align-buttons"></div>
-              </div>
-            </div>
-          </div>
-          <div class="modular-hero-15-small-image-wrapper">
-            <div class="modular-hero-15-image-wrap modular-hero-anim-load-4th">
-              <div class="modular-hero-15-general-image">
-                <div class="modular-hero-image-wrap"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modular-vertical-flex hero med-small">
-          <div class="modular-hero-anim-load-1st">
-            <div class="modular-hero-15-title-wrap">
-              <h1 class="modular-hero-heading hero">Programas y
-                servicios</h1>
-            </div>
-          </div>
-          <div id="w-node-_4cbb07c8-806c-8db6-4792-7401b1658da8-39969538" class="modular-hero-anim-load-2nd">
-            <p class="modular-hero-description hero _2">Descubre la metodología creada para transformar tu salud, tu cuerpo y tu vida para siempre.</p>
-          </div>
-          <div class="div-block-18">
-            <a href="https://coachd-booking.short.gy/Formulario%20KYC" target="_blank" class="modular-button w-inline-block">
-              <p class="modular-simple-text hero">Consulta</p><img width="16" sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw" alt="" src="images/Arrow-white-1.png" loading="lazy" srcset="images/Arrow-white-1-p-500.png 500w, images/Arrow-white-1-p-800.png 800w, images/Arrow-white-1.png 1080w" class="modular-button-icon">
-              <div class="modular-button-bg"></div>
-            </a>
-            <a data-w-id="7492977f-ffb8-7ee4-d2ba-475e3e2f067e" href="#" class="modular-button-secondary hero w-inline-block">
-              <p class="modular-simple-text small-text hero">Saber Más</p><img sizes="(max-width: 1080px) 100vw, 1080px" srcset="images/Arrow-green-1-p-500.png 500w, images/Arrow-green-1-p-800.png 800w, images/Arrow-green-1.png 1080w" alt="" src="images/Arrow-green-1.png" loading="lazy" class="modular-button-icon">
-              <div class="modular-button-2-bg"></div>
-            </a>
-          </div>
-          <div class="modular-margin-top-auto">
-            <div class="modular-margin-top hero">
-              <div class="modular-hero-cta-wrap">
-                <div>
-                  <a href="https://coachd-booking.short.gy/Formulario%20KYC" target="_blank" class="modular-button w-inline-block">
-                    <p class="modular-simple-text hero">Consulta</p><img width="16" sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw" alt="" src="images/Arrow-white-1.png" loading="lazy" srcset="images/Arrow-white-1-p-500.png 500w, images/Arrow-white-1-p-800.png 800w, images/Arrow-white-1.png 1080w" class="modular-button-icon">
-                    <div class="modular-button-bg"></div>
-                  </a>
-                </div>
-                <div>
-                  <a data-w-id="4cbb07c8-806c-8db6-4792-7401b1658db5" href="#" class="modular-button-secondary w-inline-block">
-                    <p class="modular-simple-text small-text hero">Saber Más</p><img sizes="(max-width: 1080px) 100vw, 1080px" srcset="images/Arrow-green-1-p-500.png 500w, images/Arrow-green-1-p-800.png 800w, images/Arrow-green-1.png 1080w" alt="" src="images/Arrow-green-1.png" loading="lazy" class="modular-button-icon">
-                    <div class="modular-button-2-bg"></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modular-hero-anim-load-3rd">
-            <div class="modular-hero-cta-wrap left-align-buttons"></div>
-          </div>
-        </div>
-      </div>
-      <div class="modular-section">
-        <div class="modular-hero-default-section-bg"></div>
-      </div>
-    </div>
-    <div mdlfy-content="component" class="m-feature-wrapper">
-      <div class="modular-section">
-        <div class="modular-container hero">
-          <div class="modular-features-right">
-            <div id="biografia" class="modular-features-2-col-grid video small">
-              <div class="modular-grid-content">
-                <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c42c4" class="modular-features-image-wrap"></div>
-              </div>
-              <div class="modular-grid-content modular-grid-content-relative"></div>
-              <div id="w-node-d44c43e4-1707-1ad0-3348-9a5c70491ccc-39969538" class="video-title-block">
-                <p class="modular-subtitle">Coach D. Method</p>
-                <h3 id="w-node-_9b8f4a33-eda4-3c7d-6937-47ba111176d8-39969538" class="heading">Bienestar Verdadero, Resultados Duraderos</h3>
-                <div id="w-node-fb2ec816-2623-a212-7c1e-0aade6c7b496-39969538" class="text-block-3">El metodo de Coach D. consiste en un enfoque único que te empodera para cultivar un estilo de vida equilibrado y libre donde manejas tu peso de manera saludable y sostenible sin dietas extremas ni sacrificios constantes. ¡Es hora de vivir con salud, libertad y confianza!</div>
-              </div>
-              <div id="w-node-fd71216c-bde3-e116-9357-2c3235e10dbd-39969538" style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7rjyFGSoSO8&type=text%2Fhtml&schema=google&display_name=YouTube&src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7rjyFGSoSO8" width="940" height="528" scrolling="no" allowfullscreen="" title="Biografia Coach D."></iframe></div>
-              <div id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c42ca-39969538" class="modular-features-grid-content video">
-                <p class="modular-subtitle">Coach D. Method</p>
-                <h3 class="modular-h3-heading">Bienestar Verdadero, Resultados Duraderos</h3>
-                <p class="modular-light-grey-text video">El metodo de Coach D. consiste en un enfoque único que te empodera para cultivar un estilo de vida equilibrado y libre donde manejas tu peso de manera saludable y sostenible sin dietas extremas ni sacrificios constantes. ¡Es hora de vivir con salud, libertad y confianza!</p>
+                <div class="rl_menu-icon_line-bottom-2"></div>
               </div>
             </div>
           </div>
         </div>
+        <div class="modular-nav"></div>
       </div>
-    </div>
-    <div mdlfy-content="component" class="modular-services-wrapper">
-      <div class="modular-services-06">
-        <div class="modular-section modular-overflow-hidden">
-          <div id="metodo" class="modular-container">
-            <div class="modular-header-container coachd">
-              <h2 class="modular-h2-heading coachd">El metodo de Coach D.</h2>
-              <p class="modular-text about coachd">nuestra visión se centra en empoderar al individuo a tomar el control permanente de su salud y peso con un enfoque holístico que entrelaza la nutrición, el fitness y la construcción de hábitos duraderos.</p>
-            </div>
-            <div class="w-layout-grid modular-services-06-grid features">
-              <div class="modular-grid-content">
-                <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c42f3" class="modular-services-06-item">
-                  <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                    <h2 class="modular-h3-heading modular-no-margins">01</h2>
-                  </div>
-                  <div class="modular-services-06-item-content">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                      <p class="modular-text modular-semibold-font metodo title">Salud y energia renovada</p>
-                      <p class="modular-text modular-semibold-font metodo">Restablece tu energía física y mental para sentirte vibrante diariamente. Aprende técnicas para gestionar el estrés y disfruta de una vida llena de vitalidad, claridad y bienestar.</p>
-                    </div>
-                    <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                      <p class="modular-text-small">Restablece tu energía física y mental para sentirte vibrante diariamente. Aprende técnicas para gestionar el estrés y disfruta de una vida llena de vitalidad, claridad y bienestar.</p>
-                    </div>
+      <div mdlfy-content="component" class="modular-hero-wrapper">
+        <div class="modular-container hero small">
+          <div class="modular-hero-15-small-content hero program">
+            <div class="modular-grid-relative-content">
+              <div class="modular-vertical-flex hero _2">
+                <div class="modular-hero-anim-load-1st">
+                  <div class="modular-hero-15-title-wrap">
+                    <h1 class="modular-hero-heading hero">
+                      Programas y servicios
+                    </h1>
                   </div>
                 </div>
-              </div>
-              <div class="modular-grid-content">
-                <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c4302" class="modular-services-06-item">
-                  <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                    <h2 class="modular-h3-heading modular-no-margins">02</h2>
-                  </div>
-                  <div class="modular-services-06-item-content">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                      <p class="modular-text modular-semibold-font metodo title">Vida Equilibrada</p>
-                      <p class="modular-text modular-semibold-font metodo">Aprende a encontrar la armonía entre una nutrición sostenible, actividad física regular y autocuidado para una vida más equilibrada y feliz.</p>
-                    </div>
-                    <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                      <p class="modular-text-small">Aprende a encontrar la armonía entre una nutrición sostenible, actividad física regular y autocuidado para una vida más equilibrada y feliz.</p>
-                    </div>
-                  </div>
+                <div
+                  id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c42a5-39969538"
+                  class="modular-hero-anim-load-2nd"
+                >
+                  <p class="modular-hero-description hero _2">
+                    Descubre la metodología creada para transformar tu salud, tu
+                    cuerpo y tu vida para siempre.
+                  </p>
                 </div>
-              </div>
-              <div class="modular-grid-content">
-                <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c4311" class="modular-services-06-item">
-                  <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                    <h2 class="modular-h3-heading modular-no-margins">03</h2>
-                  </div>
-                  <div class="modular-services-06-item-content">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                      <p class="modular-text modular-semibold-font metodo title">Nutrición Flexible</p>
-                      <p class="modular-text modular-semibold-font metodo">Aprende a nutrir tu cuerpo de manera inteligente una alimentación variada, adaptable y sostenible mientras disfrutas de tus comidas favoritas sin dietas extremas.</p>
-                    </div>
-                    <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                      <p class="modular-text-small">Aprende a nutrir tu cuerpo de manera inteligente una alimentación variada, adaptable y sostenible mientras disfrutas de tus comidas favoritas sin dietas extremas.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modular-grid-content">
-                <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c4320" class="modular-services-06-item">
-                  <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                    <h2 class="modular-h3-heading modular-no-margins">04</h2>
-                  </div>
-                  <div class="modular-services-06-item-content">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                      <p class="modular-text modular-semibold-font metodo title">Resultados Sostenibles</p>
-                      <p class="modular-text modular-semibold-font metodo">Implementa habitos duraderos que se incorporen de manera natural a tu vida cotidiana. Con un enfoque práctico y realista, disfrutarás de un cambio genuinio y sostenible.</p>
-                    </div>
-                    <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                      <p class="modular-text-small">Implementa habitos duraderos que se incorporen de manera natural a tu vida cotidiana. Con un enfoque práctico y realista, disfrutarás de un cambio genuinio y sostenible.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modular-grid-content">
-                <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c432f" class="modular-services-06-item">
-                  <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                    <h2 class="modular-h3-heading modular-no-margins">05</h2>
-                  </div>
-                  <div class="modular-services-06-item-content">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                      <p class="modular-text modular-semibold-font metodo title">Composición Corporal</p>
-                      <p class="modular-text modular-semibold-font metodo">Desarrolla un cuerpo más fuerte y saludable, reduciendo grasa y aumentando masa muscular, mejorando tu composición corporal para una vida más plena y saludable.</p>
-                    </div>
-                    <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                      <p class="modular-text-small">Desarrolla un cuerpo más fuerte y saludable, reduciendo grasa y aumentando masa muscular, mejorando tu composición corporal para una vida más plena y saludable.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modular-grid-content">
-                <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c433e" class="modular-services-06-item">
-                  <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                    <h2 class="modular-h3-heading modular-no-margins">06</h2>
-                  </div>
-                  <div class="modular-services-06-item-content">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                      <p class="modular-text modular-semibold-font metodo title">Hábitos Duraderos</p>
-                      <p class="modular-text modular-semibold-font metodo">Crea rutinas para promover la salud y el bienestar a largo plazo. Aprende a manejar el estrés y desarrolla hábitos que mantengan un estilo de vida saludable y equilibrado.</p>
-                    </div>
-                    <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                      <p class="modular-text-small">Crea rutinas para promover la salud y el bienestar a largo plazo. Aprende a manejar el estrés y desarrolla hábitos que mantengan un estilo de vida saludable y equilibrado.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div mdlfy-content="component" class="modular-pricing-wrapper">
-      <div class="modular-section">
-        <div class="modular-pricing-04">
-          <div id="programas" class="modular-container">
-            <div class="modular-header-container coachd">
-              <h2 class="modular-h2-heading coachd">Programas y servicios</h2>
-              <p class="modular-text about coachd">Fomentamos autonomia y empoderamos los participantes a tomar el control permamente sobre sus cuerpos y salud por medio de soluciones probadas y sostenibles a largo plazo.</p>
-            </div>
-            <div class="modular-pricing-04-in">
-              <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="modular-tabs w-tabs">
-                <div class="modular-tabs-content planes w-tab-content">
-                  <div data-w-tab="Tab 1" class="modular-tab-pane w-tab-pane w--tab-active">
-                    <div class="w-layout-grid modular-pricing-04-grid">
-                      <div id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c436b-39969538" class="content">
-                        <div class="modular-active-card">
-                          <div class="modular-pricing-04-item highlight">
-                            <p class="modular-text-l main">Control de Peso</p>
-                            <div class="modular-pricing-04-price-holder"></div>
-                            <div class="pricing-features-holders">
-                              <p class="modular-text main programas">Programa intensivo de 3 meses diseñado para aquellos que necesitan tomar el control de sus cuerpos y salud.</p>
-                            </div>
-                            <div class="modular-pricing-04-list">
-                              <div class="modular-list-holder">
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon modular-active-list-item-icon main"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap programa">
-                                    <p class="modular-text main programas">Acceso ilimitado a todas <br>las herramientas en el app</p>
-                                  </div>
-                                </div>
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon modular-active-list-item-icon main"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text main programas">Accesso premium a <br>herramienta nutricional </p>
-                                  </div>
-                                </div>
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon modular-active-list-item-icon main"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text main">Plan de entrenamiento <br>y construcción de hábitos</p>
-                                  </div>
-                                </div>
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon modular-active-list-item-icon main"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text main">Material de apoyo <br>y guias especializadas</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="pricing-button-holder">
-                              <div>
-                                <a href="https://coachd-booking.short.gy/Formulario%20KYC" target="_blank" class="modular-button-active-card main modal w-inline-block">
-                                  <p class="modular-simple-text main">Empezar<br></p><img sizes="(max-width: 1080px) 100vw, 1080px" srcset="images/Arrow-white-1-p-500.png 500w, images/Arrow-white-1-p-800.png 800w, images/Arrow-white-1.png 1080w" alt="" src="images/Arrow-white-1.png" loading="lazy" class="modular-button-icon">
-                                  <div class="modular-button-2-bg"></div>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="modular-active-card-bg"></div>
-                        </div>
+                <div class="modular-margin-top-auto">
+                  <div class="modular-margin-top">
+                    <div class="modular-hero-cta-wrap">
+                      <div>
+                        <a
+                          href="https://coachd-booking.short.gy/Formulario%20KYC"
+                          target="_blank"
+                          class="modular-button hero-sm w-inline-block"
+                        >
+                          <p class="modular-simple-text hero">Consulta</p>
+                          <img
+                            width="16"
+                            sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw"
+                            alt=""
+                            src="images/Arrow-white-1.png"
+                            loading="lazy"
+                            srcset="
+                              images/Arrow-white-1-p-500.png  500w,
+                              images/Arrow-white-1-p-800.png  800w,
+                              images/Arrow-white-1.png       1080w
+                            "
+                            class="modular-button-icon"
+                          />
+                          <div class="modular-button-bg"></div>
+                        </a>
                       </div>
-                      <div id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c439b-39969538" class="content">
-                        <div class="modular-card">
-                          <div class="modular-pricing-04-item">
-                            <p class="modular-text-l modular-color-inherit">On-Demand</p>
-                            <div class="modular-pricing-04-price-holder"></div>
-                            <div class="pricing-features-holders">
-                              <p class="modular-text secondary programa">Plan mensual para aquellos que mantienen un enfoque hacia el fitness y valoran la autonomia en sus rutinas.</p>
-                            </div>
-                            <div class="modular-pricing-04-list">
-                              <div class="modular-list-holder">
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text secondary programa">Acceso exclusivo a libreria <br>con cientos de rutinas </p>
-                                  </div>
-                                </div>
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text secondary programa">Accesso premium <br>a herramienta nutricional </p>
-                                  </div>
-                                </div>
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text secondary programa">Acceso ilimitado a todas <br>las herramientas del app</p>
-                                  </div>
-                                </div>
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text secondary programa">Acceso a construccion <br>de hábitos esenciales </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="pricing-button-holder">
-                              <div>
-                                <a href="https://coachd-booking.short.gy/Formulario%20KYC" target="_blank" class="modular-button modal w-inline-block">
-                                  <p class="modular-simple-text cta">Empezar</p><img width="16" sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw" alt="" src="images/Arrow-white-1.png" loading="lazy" srcset="images/Arrow-white-1-p-500.png 500w, images/Arrow-white-1-p-800.png 800w, images/Arrow-white-1.png 1080w" class="modular-button-icon">
-                                  <div class="modular-button-bg"></div>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="modular-card-bg"></div>
-                        </div>
-                      </div>
-                      <div id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c43ca-39969538" class="content">
-                        <div class="modular-card">
-                          <div class="modular-pricing-04-item coaching">
-                            <p class="modular-text-l modular-color-inherit">Coaching</p>
-                            <div class="modular-pricing-04-price-holder"></div>
-                            <div class="pricing-features-holders">
-                              <p class="modular-text secondary programa">Servicio adicional disponible exclusivamente para miembros destinado a orientarlos en su jornada</p>
-                            </div>
-                            <div class="modular-pricing-04-list">
-                              <div class="modular-list-holder">
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text secondary programa">Sesiones individuales de <br>50 minutos</p>
-                                  </div>
-                                </div>
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text secondary programa">Videollamada en vivo <br>con tu Coach</p>
-                                  </div>
-                                </div>
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text secondary programa">Asesoria y orientacion <br>personalizada</p>
-                                  </div>
-                                </div>
-                                <div class="modular-list-item-with-icon">
-                                  <div class="modular-list-item-icon-wrapper">
-                                    <div class="modular-list-item-icon"></div>
-                                  </div>
-                                  <div class="modular-list-item-text-wrap">
-                                    <p class="modular-text secondary programa">Informe de sesion <br>y recomendaciones</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="pricing-button-holder"></div>
-                          </div>
-                          <div class="modular-card-bg"></div>
-                        </div>
+                      <div>
+                        <a
+                          data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c42db"
+                          href="#"
+                          class="modular-button-secondary hero w-inline-block"
+                        >
+                          <div class="modular-button-2-bg"></div>
+                          <p class="modular-simple-text small-text hero">
+                            Saber Más
+                          </p>
+                          <img
+                            sizes="(max-width: 1080px) 100vw, 1080px"
+                            srcset="
+                              images/Arrow-green-1-p-500.png  500w,
+                              images/Arrow-green-1-p-800.png  800w,
+                              images/Arrow-green-1.png       1080w
+                            "
+                            alt=""
+                            src="images/Arrow-green-1.png"
+                            loading="lazy"
+                            class="modular-button-icon"
+                          />
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div class="modular-hero-anim-load-3rd">
+                  <div class="modular-hero-cta-wrap left-align-buttons"></div>
+                </div>
+              </div>
+            </div>
+            <div class="modular-hero-15-small-image-wrapper">
+              <div
+                class="modular-hero-15-image-wrap modular-hero-anim-load-4th"
+              >
+                <div class="modular-hero-15-general-image">
+                  <div class="modular-hero-image-wrap"></div>
+                </div>
               </div>
             </div>
           </div>
+          <div class="modular-vertical-flex hero med-small">
+            <div class="modular-hero-anim-load-1st">
+              <div class="modular-hero-15-title-wrap">
+                <h1 class="modular-hero-heading hero">Programas y servicios</h1>
+              </div>
+            </div>
+            <div
+              id="w-node-_4cbb07c8-806c-8db6-4792-7401b1658da8-39969538"
+              class="modular-hero-anim-load-2nd"
+            >
+              <p class="modular-hero-description hero _2">
+                Descubre la metodología creada para transformar tu salud, tu
+                cuerpo y tu vida para siempre.
+              </p>
+            </div>
+            <div class="div-block-18">
+              <a
+                href="https://coachd-booking.short.gy/Formulario%20KYC"
+                target="_blank"
+                class="modular-button w-inline-block"
+              >
+                <p class="modular-simple-text hero">Consulta</p>
+                <img
+                  width="16"
+                  sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw"
+                  alt=""
+                  src="images/Arrow-white-1.png"
+                  loading="lazy"
+                  srcset="
+                    images/Arrow-white-1-p-500.png  500w,
+                    images/Arrow-white-1-p-800.png  800w,
+                    images/Arrow-white-1.png       1080w
+                  "
+                  class="modular-button-icon"
+                />
+                <div class="modular-button-bg"></div>
+              </a>
+              <a
+                data-w-id="7492977f-ffb8-7ee4-d2ba-475e3e2f067e"
+                href="#"
+                class="modular-button-secondary hero w-inline-block"
+              >
+                <p class="modular-simple-text small-text hero">Saber Más</p>
+                <img
+                  sizes="(max-width: 1080px) 100vw, 1080px"
+                  srcset="
+                    images/Arrow-green-1-p-500.png  500w,
+                    images/Arrow-green-1-p-800.png  800w,
+                    images/Arrow-green-1.png       1080w
+                  "
+                  alt=""
+                  src="images/Arrow-green-1.png"
+                  loading="lazy"
+                  class="modular-button-icon"
+                />
+                <div class="modular-button-2-bg"></div>
+              </a>
+            </div>
+            <div class="modular-margin-top-auto">
+              <div class="modular-margin-top hero">
+                <div class="modular-hero-cta-wrap">
+                  <div>
+                    <a
+                      href="https://coachd-booking.short.gy/Formulario%20KYC"
+                      target="_blank"
+                      class="modular-button w-inline-block"
+                    >
+                      <p class="modular-simple-text hero">Consulta</p>
+                      <img
+                        width="16"
+                        sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw"
+                        alt=""
+                        src="images/Arrow-white-1.png"
+                        loading="lazy"
+                        srcset="
+                          images/Arrow-white-1-p-500.png  500w,
+                          images/Arrow-white-1-p-800.png  800w,
+                          images/Arrow-white-1.png       1080w
+                        "
+                        class="modular-button-icon"
+                      />
+                      <div class="modular-button-bg"></div>
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      data-w-id="4cbb07c8-806c-8db6-4792-7401b1658db5"
+                      href="#"
+                      class="modular-button-secondary w-inline-block"
+                    >
+                      <p class="modular-simple-text small-text hero">
+                        Saber Más
+                      </p>
+                      <img
+                        sizes="(max-width: 1080px) 100vw, 1080px"
+                        srcset="
+                          images/Arrow-green-1-p-500.png  500w,
+                          images/Arrow-green-1-p-800.png  800w,
+                          images/Arrow-green-1.png       1080w
+                        "
+                        alt=""
+                        src="images/Arrow-green-1.png"
+                        loading="lazy"
+                        class="modular-button-icon"
+                      />
+                      <div class="modular-button-2-bg"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modular-hero-anim-load-3rd">
+              <div class="modular-hero-cta-wrap left-align-buttons"></div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div mdlfy-content="component" class="modular-services-wrapper">
-      <div class="modular-services-06">
         <div class="modular-section">
-          <div class="modular-container pasos">
-            <div class="proceso-inscripcion">
-              <div class="text-block-4">Inscripciones</div>
-              <h3 class="heading-2">Pasos a seguir</h3>
-              <div class="text-block-5">El proceso de inscripcion es facil y sencillo. Solo sigue estos pasos para unirte a nostros y empezar tu jornada hacia una vida mas feliz y saludable.</div>
+          <div class="modular-hero-default-section-bg"></div>
+        </div>
+      </div>
+      <div mdlfy-content="component" class="m-feature-wrapper">
+        <div class="modular-section">
+          <div class="modular-container hero">
+            <div class="modular-features-right">
+              <div
+                id="biografia"
+                class="modular-features-2-col-grid video small"
+              >
+                <div class="modular-grid-content">
+                  <div
+                    data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c42c4"
+                    class="modular-features-image-wrap"
+                  ></div>
+                </div>
+                <div
+                  class="modular-grid-content modular-grid-content-relative"
+                ></div>
+                <div
+                  id="w-node-d44c43e4-1707-1ad0-3348-9a5c70491ccc-39969538"
+                  class="video-title-block"
+                >
+                  <p class="modular-subtitle">Coach D. Method</p>
+                  <h3
+                    id="w-node-_9b8f4a33-eda4-3c7d-6937-47ba111176d8-39969538"
+                    class="heading"
+                  >
+                    Bienestar Verdadero, Resultados Duraderos
+                  </h3>
+                  <div
+                    id="w-node-fb2ec816-2623-a212-7c1e-0aade6c7b496-39969538"
+                    class="text-block-3"
+                  >
+                    El metodo de Coach D. consiste en un enfoque único que te
+                    empodera para cultivar un estilo de vida equilibrado y libre
+                    donde manejas tu peso de manera saludable y sostenible sin
+                    dietas extremas ni sacrificios constantes. ¡Es hora de vivir
+                    con salud, libertad y confianza!
+                  </div>
+                </div>
+                <div
+                  id="w-node-fd71216c-bde3-e116-9357-2c3235e10dbd-39969538"
+                  style="padding-top: 56.17021276595745%"
+                  class="video-2 w-video w-embed"
+                >
+                  <iframe
+                    class="embedly-embed"
+                    src="https://cdn.embedly.com/widgets/media.html?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7rjyFGSoSO8&type=text%2Fhtml&schema=google&display_name=YouTube&src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7rjyFGSoSO8"
+                    width="940"
+                    height="528"
+                    scrolling="no"
+                    allowfullscreen=""
+                    title="Biografia Coach D."
+                  ></iframe>
+                </div>
+                <div
+                  id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c42ca-39969538"
+                  class="modular-features-grid-content video"
+                >
+                  <p class="modular-subtitle">Coach D. Method</p>
+                  <h3 class="modular-h3-heading">
+                    Bienestar Verdadero, Resultados Duraderos
+                  </h3>
+                  <p class="modular-light-grey-text video">
+                    El metodo de Coach D. consiste en un enfoque único que te
+                    empodera para cultivar un estilo de vida equilibrado y libre
+                    donde manejas tu peso de manera saludable y sostenible sin
+                    dietas extremas ni sacrificios constantes. ¡Es hora de vivir
+                    con salud, libertad y confianza!
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="proceso-inscripcion pasos _1">
-              <div class="text-block-4 _1">1er</div>
-              <h3 class="heading-2 _1">Chat con soporte</h3>
-              <div class="text-block-5 _1">Empieza resolviendo tus dudas y preguntas mas urgentes via chat con nuestro agente de soporte en vivo para asegurarte que nuestros servicios son para ti.</div>
-            </div>
-            <div class="proceso-inscripcion pasos">
-              <div class="text-block-4">2do</div>
-              <h3 class="heading-2">Llena el formulario</h3>
-              <div class="text-block-5">Este formulario es indispensable para asesar tus necesidades antes de llevar a cabo la consulta introductoria. No se agendara la sesion hasta que el formulario haya sido completado.</div>
-            </div>
-            <div class="proceso-inscripcion pasos">
-              <div class="text-block-4">3ro</div>
-              <h3 class="heading-2">Agenda tu consulta</h3>
-              <div class="text-block-5">Una vez que hayas aclarado tus dudas con soporte y enviado tu formulario completo podrá agendar tu consulta introductoria gratuita, requerida para poder inscribirse.</div>
-            </div>
-            <div class="proceso-inscripcion pasos">
-              <div class="text-block-4">4to</div>
-              <h3 class="heading-2">Consulta introductoria</h3>
-              <div class="text-block-5">Durante esta sesión, se abordará los puntos clave de tu formulario de evaluación y resolverá cualquier inquietud o duda que aún puedas tener.</div>
-            </div>
-            <div class="proceso-inscripcion pasos">
-              <div class="text-block-4">5to</div>
-              <h3 class="heading-2">Activa tu subscripcion</h3>
-              <div class="text-block-5">Cuando te sientas completamente listo y decidido a comenzar, recibirás un correo electrónico con el vinculo de pago para suscribirte al programa que hayas elegido.</div>
-            </div>
-            <div class="proceso-inscripcion pasos">
-              <div class="text-block-4">6to</div>
-              <h3 class="heading-2">Accede a tu cuenta</h3>
-              <div class="text-block-5">Con tu suscripción confirmada, solo te quedará acceder a tu cuenta y dar inicio a tu viaje hacia una vida más saludable y plena bajo nuestra guía experta.</div>
-            </div>
-            <div class="modular-features-02 inscripcion">
-              <div id="inscripcion" class="modular-services-03-main-grid inscripcion">
-                <div id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c448f-39969538" class="modular-grid-content modular-grid-content-relative pasos">
-                  <div class="modular-sticky-content no-sticky-content-on-tablet">
-                    <div class="modular-header-container modular-left-header-container">
-                      <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c4492" style="opacity:0" class="modular-text-left">
-                        <div class="modular-subtitle-wrap">
-                          <p class="modular-subtitle">Inscripciones</p>
-                        </div>
-                        <h2 class="modular-h1-heading section">Pasos<br>a seguir</h2>
-                        <div class="modular-text-l">
-                          <p class="modular-text inscripcion">El proceso de inscripcion es facil y sencillo. Solo sigue estos pasos para unirte a nostros y empezar tu jornada hacia una vida mas feliz y saludable.</p>
-                        </div>
+          </div>
+        </div>
+      </div>
+      <div mdlfy-content="component" class="modular-services-wrapper">
+        <div class="modular-services-06">
+          <div class="modular-section modular-overflow-hidden">
+            <div id="metodo" class="modular-container">
+              <div class="modular-header-container coachd">
+                <h2 class="modular-h2-heading coachd">El metodo de Coach D.</h2>
+                <p class="modular-text about coachd">
+                  nuestra visión se centra en empoderar al individuo a tomar el
+                  control permanente de su salud y peso con un enfoque holístico
+                  que entrelaza la nutrición, el fitness y la construcción de
+                  hábitos duraderos.
+                </p>
+              </div>
+              <div class="w-layout-grid modular-services-06-grid features">
+                <div class="modular-grid-content">
+                  <div
+                    data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c42f3"
+                    class="modular-services-06-item"
+                  >
+                    <div
+                      style="
+                        opacity: 0;
+                        -webkit-transform: translate3d(0, 20px, 0)
+                          scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                          skew(0, 0);
+                        -moz-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        -ms-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                      "
+                      class="modular-hero-anim-load-1st"
+                    >
+                      <h2 class="modular-h3-heading modular-no-margins">01</h2>
+                    </div>
+                    <div class="modular-services-06-item-content">
+                      <div
+                        style="
+                          opacity: 0;
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        "
+                        class="modular-hero-anim-load-2nd"
+                      >
+                        <p
+                          class="modular-text modular-semibold-font metodo title"
+                        >
+                          Salud y energia renovada
+                        </p>
+                        <p class="modular-text modular-semibold-font metodo">
+                          Restablece tu energía física y mental para sentirte
+                          vibrante diariamente. Aprende técnicas para gestionar
+                          el estrés y disfruta de una vida llena de vitalidad,
+                          claridad y bienestar.
+                        </p>
+                      </div>
+                      <div
+                        style="
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                          opacity: 0;
+                        "
+                        class="modular-hero-anim-load-3rd"
+                      >
+                        <p class="modular-text-small">
+                          Restablece tu energía física y mental para sentirte
+                          vibrante diariamente. Aprende técnicas para gestionar
+                          el estrés y disfruta de una vida llena de vitalidad,
+                          claridad y bienestar.
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="modular-grid-content">
-                  <div class="w-layout-grid modular-services-03-grid-boxes">
-                    <div id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c44a0-39969538" class="modular-grid-content">
-                      <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c44a1" class="modular-services-03-item">
-                        <div class="modular-services-03-item-content">
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                            <div class="modular-margin-top-xs">
-                              <p class="modular-subtitle _1">1er</p>
-                            </div>
-                          </div>
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                            <div class="modular-margin-top-xs">
-                              <h2 class="modular-h3-heading _1">Chat con soporte</h2>
-                            </div>
-                          </div>
-                          <div class="modular-hero-anim-load-3rd proceso">
-                            <p class="modular-text modular-grey-color proceso _1">Empieza resolviendo tus dudas y preguntas mas urgentes via chat con nuestro agente de soporte en vivo para asegurarte que nuestros servicios son para ti.</p>
-                          </div>
-                        </div>
-                        <div class="modular-services-03-bg-wrap block-1"></div>
-                        <div class="modular-services-03-bg block-1 _1"></div>
+                  <div
+                    data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c4302"
+                    class="modular-services-06-item"
+                  >
+                    <div
+                      style="
+                        opacity: 0;
+                        -webkit-transform: translate3d(0, 20px, 0)
+                          scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                          skew(0, 0);
+                        -moz-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        -ms-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                      "
+                      class="modular-hero-anim-load-1st"
+                    >
+                      <h2 class="modular-h3-heading modular-no-margins">02</h2>
+                    </div>
+                    <div class="modular-services-06-item-content">
+                      <div
+                        style="
+                          opacity: 0;
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        "
+                        class="modular-hero-anim-load-2nd"
+                      >
+                        <p
+                          class="modular-text modular-semibold-font metodo title"
+                        >
+                          Vida Equilibrada
+                        </p>
+                        <p class="modular-text modular-semibold-font metodo">
+                          Aprende a encontrar la armonía entre una nutrición
+                          sostenible, actividad física regular y autocuidado
+                          para una vida más equilibrada y feliz.
+                        </p>
+                      </div>
+                      <div
+                        style="
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                          opacity: 0;
+                        "
+                        class="modular-hero-anim-load-3rd"
+                      >
+                        <p class="modular-text-small">
+                          Aprende a encontrar la armonía entre una nutrición
+                          sostenible, actividad física regular y autocuidado
+                          para una vida más equilibrada y feliz.
+                        </p>
                       </div>
                     </div>
-                    <div class="modular-grid-content">
-                      <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c44b4" class="modular-services-03-item">
-                        <div class="modular-services-03-item-content">
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                            <div class="modular-margin-top-xs">
-                              <p class="modular-subtitle">2do</p>
-                            </div>
-                          </div>
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                            <div class="modular-margin-top-xs">
-                              <h2 class="modular-h3-heading">Llena el Formulario</h2>
-                            </div>
-                          </div>
-                          <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                            <p class="modular-text modular-grey-color proceso">Este formulario es indispensable para asesar tus necesidades antes de llevar a cabo la consulta introductoria. No se agendara la sesion hasta que el formulario haya sido completado.</p>
-                          </div>
-                        </div>
-                        <div class="modular-services-03-bg-wrap">
-                          <div class="modular-services-03-bg secondary"></div>
-                        </div>
+                  </div>
+                </div>
+                <div class="modular-grid-content">
+                  <div
+                    data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c4311"
+                    class="modular-services-06-item"
+                  >
+                    <div
+                      style="
+                        opacity: 0;
+                        -webkit-transform: translate3d(0, 20px, 0)
+                          scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                          skew(0, 0);
+                        -moz-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        -ms-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                      "
+                      class="modular-hero-anim-load-1st"
+                    >
+                      <h2 class="modular-h3-heading modular-no-margins">03</h2>
+                    </div>
+                    <div class="modular-services-06-item-content">
+                      <div
+                        style="
+                          opacity: 0;
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        "
+                        class="modular-hero-anim-load-2nd"
+                      >
+                        <p
+                          class="modular-text modular-semibold-font metodo title"
+                        >
+                          Nutrición Flexible
+                        </p>
+                        <p class="modular-text modular-semibold-font metodo">
+                          Aprende a nutrir tu cuerpo de manera inteligente una
+                          alimentación variada, adaptable y sostenible mientras
+                          disfrutas de tus comidas favoritas sin dietas
+                          extremas.
+                        </p>
+                      </div>
+                      <div
+                        style="
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                          opacity: 0;
+                        "
+                        class="modular-hero-anim-load-3rd"
+                      >
+                        <p class="modular-text-small">
+                          Aprende a nutrir tu cuerpo de manera inteligente una
+                          alimentación variada, adaptable y sostenible mientras
+                          disfrutas de tus comidas favoritas sin dietas
+                          extremas.
+                        </p>
                       </div>
                     </div>
-                    <div class="modular-grid-content">
-                      <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c44c7" class="modular-services-03-item">
-                        <div class="modular-services-03-item-content">
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                            <div class="modular-margin-top-xs">
-                              <p class="modular-subtitle">3er</p>
-                            </div>
-                          </div>
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                            <div class="modular-margin-top-xs">
-                              <h2 class="modular-h3-heading">Agenda tu Consulta</h2>
-                            </div>
-                          </div>
-                          <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                            <p class="modular-text inscripcion">Una vez que hayas aclarado tus dudas con soporte y enviado tu formulario completo podrá agendar tu consulta introductoria gratuita, requerida para poder inscribirse.</p>
-                          </div>
-                        </div>
-                        <div class="modular-services-03-bg-wrap">
-                          <div class="modular-services-03-bg secondary"></div>
-                        </div>
+                  </div>
+                </div>
+                <div class="modular-grid-content">
+                  <div
+                    data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c4320"
+                    class="modular-services-06-item"
+                  >
+                    <div
+                      style="
+                        opacity: 0;
+                        -webkit-transform: translate3d(0, 20px, 0)
+                          scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                          skew(0, 0);
+                        -moz-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        -ms-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                      "
+                      class="modular-hero-anim-load-1st"
+                    >
+                      <h2 class="modular-h3-heading modular-no-margins">04</h2>
+                    </div>
+                    <div class="modular-services-06-item-content">
+                      <div
+                        style="
+                          opacity: 0;
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        "
+                        class="modular-hero-anim-load-2nd"
+                      >
+                        <p
+                          class="modular-text modular-semibold-font metodo title"
+                        >
+                          Resultados Sostenibles
+                        </p>
+                        <p class="modular-text modular-semibold-font metodo">
+                          Implementa habitos duraderos que se incorporen de
+                          manera natural a tu vida cotidiana. Con un enfoque
+                          práctico y realista, disfrutarás de un cambio genuinio
+                          y sostenible.
+                        </p>
+                      </div>
+                      <div
+                        style="
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                          opacity: 0;
+                        "
+                        class="modular-hero-anim-load-3rd"
+                      >
+                        <p class="modular-text-small">
+                          Implementa habitos duraderos que se incorporen de
+                          manera natural a tu vida cotidiana. Con un enfoque
+                          práctico y realista, disfrutarás de un cambio genuinio
+                          y sostenible.
+                        </p>
                       </div>
                     </div>
-                    <div class="modular-grid-content">
-                      <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c44da" class="modular-services-03-item">
-                        <div class="modular-services-03-item-content">
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                            <div class="modular-margin-top-xs">
-                              <p class="modular-subtitle">4to</p>
-                            </div>
-                          </div>
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                            <div class="modular-margin-top-xs">
-                              <h2 class="modular-h3-heading">Consulta Introductoria</h2>
-                            </div>
-                          </div>
-                          <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                            <p class="modular-text inscripcion">Durante esta sesión, se abordará los puntos clave de tu formulario de evaluación y resolverá cualquier inquietud o duda que aún puedas tener.</p>
-                          </div>
-                        </div>
-                        <div class="modular-services-03-bg-wrap">
-                          <div class="modular-services-03-bg secondary"></div>
-                        </div>
+                  </div>
+                </div>
+                <div class="modular-grid-content">
+                  <div
+                    data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c432f"
+                    class="modular-services-06-item"
+                  >
+                    <div
+                      style="
+                        opacity: 0;
+                        -webkit-transform: translate3d(0, 20px, 0)
+                          scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                          skew(0, 0);
+                        -moz-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        -ms-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                      "
+                      class="modular-hero-anim-load-1st"
+                    >
+                      <h2 class="modular-h3-heading modular-no-margins">05</h2>
+                    </div>
+                    <div class="modular-services-06-item-content">
+                      <div
+                        style="
+                          opacity: 0;
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        "
+                        class="modular-hero-anim-load-2nd"
+                      >
+                        <p
+                          class="modular-text modular-semibold-font metodo title"
+                        >
+                          Composición Corporal
+                        </p>
+                        <p class="modular-text modular-semibold-font metodo">
+                          Desarrolla un cuerpo más fuerte y saludable,
+                          reduciendo grasa y aumentando masa muscular, mejorando
+                          tu composición corporal para una vida más plena y
+                          saludable.
+                        </p>
+                      </div>
+                      <div
+                        style="
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                          opacity: 0;
+                        "
+                        class="modular-hero-anim-load-3rd"
+                      >
+                        <p class="modular-text-small">
+                          Desarrolla un cuerpo más fuerte y saludable,
+                          reduciendo grasa y aumentando masa muscular, mejorando
+                          tu composición corporal para una vida más plena y
+                          saludable.
+                        </p>
                       </div>
                     </div>
-                    <div class="modular-grid-content">
-                      <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c44ed" class="modular-services-03-item">
-                        <div class="modular-services-03-item-content">
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                            <div class="modular-margin-top-xs">
-                              <p class="modular-subtitle">5to</p>
-                            </div>
-                          </div>
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                            <div class="modular-margin-top-xs">
-                              <h2 class="modular-h3-heading">Activa tu Subscripcion</h2>
-                            </div>
-                          </div>
-                          <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                            <p class="modular-text inscripcion">Cuando te sientas completamente listo y decidido a comenzar, recibirás un correo electrónico con el vinculo de pago para suscribirte al programa que hayas elegido.</p>
-                          </div>
-                        </div>
-                        <div class="modular-services-03-bg-wrap">
-                          <div class="modular-services-03-bg secondary"></div>
-                        </div>
+                  </div>
+                </div>
+                <div class="modular-grid-content">
+                  <div
+                    data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c433e"
+                    class="modular-services-06-item"
+                  >
+                    <div
+                      style="
+                        opacity: 0;
+                        -webkit-transform: translate3d(0, 20px, 0)
+                          scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                          skew(0, 0);
+                        -moz-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        -ms-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                          rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                      "
+                      class="modular-hero-anim-load-1st"
+                    >
+                      <h2 class="modular-h3-heading modular-no-margins">06</h2>
+                    </div>
+                    <div class="modular-services-06-item-content">
+                      <div
+                        style="
+                          opacity: 0;
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                        "
+                        class="modular-hero-anim-load-2nd"
+                      >
+                        <p
+                          class="modular-text modular-semibold-font metodo title"
+                        >
+                          Hábitos Duraderos
+                        </p>
+                        <p class="modular-text modular-semibold-font metodo">
+                          Crea rutinas para promover la salud y el bienestar a
+                          largo plazo. Aprende a manejar el estrés y desarrolla
+                          hábitos que mantengan un estilo de vida saludable y
+                          equilibrado.
+                        </p>
+                      </div>
+                      <div
+                        style="
+                          -webkit-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -moz-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          -ms-transform: translate3d(0, 20px, 0)
+                            scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                            skew(0, 0);
+                          transform: translate3d(0, 20px, 0) scale3d(1, 1, 1)
+                            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                          opacity: 0;
+                        "
+                        class="modular-hero-anim-load-3rd"
+                      >
+                        <p class="modular-text-small">
+                          Crea rutinas para promover la salud y el bienestar a
+                          largo plazo. Aprende a manejar el estrés y desarrolla
+                          hábitos que mantengan un estilo de vida saludable y
+                          equilibrado.
+                        </p>
                       </div>
                     </div>
-                    <div class="modular-grid-content">
-                      <div data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c4500" class="modular-services-03-item">
-                        <div class="modular-services-03-item-content">
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-1st">
-                            <div class="modular-margin-top-xs">
-                              <p class="modular-subtitle">6to</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div mdlfy-content="component" class="modular-pricing-wrapper">
+        <div class="modular-section">
+          <div class="modular-pricing-04">
+            <div id="programas" class="modular-container">
+              <div class="modular-header-container coachd">
+                <h2 class="modular-h2-heading coachd">Programas y servicios</h2>
+                <p class="modular-text about coachd">
+                  Fomentamos autonomia y empoderamos los participantes a tomar
+                  el control permamente sobre sus cuerpos y salud por medio de
+                  soluciones probadas y sostenibles a largo plazo.
+                </p>
+              </div>
+              <div class="modular-pricing-04-in">
+                <div
+                  data-current="Tab 1"
+                  data-easing="ease"
+                  data-duration-in="300"
+                  data-duration-out="100"
+                  class="modular-tabs w-tabs"
+                >
+                  <div class="modular-tabs-content planes w-tab-content">
+                    <div
+                      data-w-tab="Tab 1"
+                      class="modular-tab-pane w-tab-pane w--tab-active"
+                    >
+                      <div class="w-layout-grid modular-pricing-04-grid">
+                        <div
+                          id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c436b-39969538"
+                          class="content"
+                        >
+                          <div class="modular-active-card">
+                            <div class="modular-pricing-04-item highlight">
+                              <p class="modular-text-l main">Control de Peso</p>
+                              <div
+                                class="modular-pricing-04-price-holder"
+                              ></div>
+                              <div class="pricing-features-holders">
+                                <p class="modular-text main programas">
+                                  Programa intensivo de 3 meses diseñado para
+                                  aquellos que necesitan tomar el control de sus
+                                  cuerpos y salud.
+                                </p>
+                              </div>
+                              <div class="modular-pricing-04-list">
+                                <div class="modular-list-holder">
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div
+                                        class="modular-list-item-icon modular-active-list-item-icon main"
+                                      ></div>
+                                    </div>
+                                    <div
+                                      class="modular-list-item-text-wrap programa"
+                                    >
+                                      <p class="modular-text main programas">
+                                        Acceso ilimitado a todas <br />las
+                                        herramientas en el app
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div
+                                        class="modular-list-item-icon modular-active-list-item-icon main"
+                                      ></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p class="modular-text main programas">
+                                        Accesso premium a <br />herramienta
+                                        nutricional
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div
+                                        class="modular-list-item-icon modular-active-list-item-icon main"
+                                      ></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p class="modular-text main">
+                                        Plan de entrenamiento <br />y
+                                        construcción de hábitos
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div
+                                        class="modular-list-item-icon modular-active-list-item-icon main"
+                                      ></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p class="modular-text main">
+                                        Material de apoyo <br />y guias
+                                        especializadas
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="pricing-button-holder">
+                                <div>
+                                  <a
+                                    href="https://coachd-booking.short.gy/Formulario%20KYC"
+                                    target="_blank"
+                                    class="modular-button-active-card main modal w-inline-block"
+                                  >
+                                    <p class="modular-simple-text main">
+                                      Empezar<br />
+                                    </p>
+                                    <img
+                                      sizes="(max-width: 1080px) 100vw, 1080px"
+                                      srcset="
+                                        images/Arrow-white-1-p-500.png  500w,
+                                        images/Arrow-white-1-p-800.png  800w,
+                                        images/Arrow-white-1.png       1080w
+                                      "
+                                      alt=""
+                                      src="images/Arrow-white-1.png"
+                                      loading="lazy"
+                                      class="modular-button-icon"
+                                    />
+                                    <div class="modular-button-2-bg"></div>
+                                  </a>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                          <div style="opacity:0;-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="modular-hero-anim-load-2nd">
-                            <div class="modular-margin-top-xs">
-                              <h2 class="modular-h3-heading">Accede a tu cuenta</h2>
-                            </div>
-                          </div>
-                          <div style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="modular-hero-anim-load-3rd">
-                            <p class="modular-text inscripcion">Con tu suscripción confirmada, solo te quedará acceder a tu cuenta y dar inicio a tu viaje hacia una vida más saludable y plena bajo nuestra guía experta.</p>
+                            <div class="modular-active-card-bg"></div>
                           </div>
                         </div>
-                        <div class="modular-services-03-bg-wrap">
-                          <div class="modular-services-03-bg secondary"></div>
+                        <div
+                          id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c439b-39969538"
+                          class="content"
+                        >
+                          <div class="modular-card">
+                            <div class="modular-pricing-04-item">
+                              <p class="modular-text-l modular-color-inherit">
+                                On-Demand
+                              </p>
+                              <div
+                                class="modular-pricing-04-price-holder"
+                              ></div>
+                              <div class="pricing-features-holders">
+                                <p class="modular-text secondary programa">
+                                  Plan mensual para aquellos que mantienen un
+                                  enfoque hacia el fitness y valoran la
+                                  autonomia en sus rutinas.
+                                </p>
+                              </div>
+                              <div class="modular-pricing-04-list">
+                                <div class="modular-list-holder">
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div class="modular-list-item-icon"></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p
+                                        class="modular-text secondary programa"
+                                      >
+                                        Acceso exclusivo a libreria <br />con
+                                        cientos de rutinas
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div class="modular-list-item-icon"></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p
+                                        class="modular-text secondary programa"
+                                      >
+                                        Accesso premium <br />a herramienta
+                                        nutricional
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div class="modular-list-item-icon"></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p
+                                        class="modular-text secondary programa"
+                                      >
+                                        Acceso ilimitado a todas <br />las
+                                        herramientas del app
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div class="modular-list-item-icon"></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p
+                                        class="modular-text secondary programa"
+                                      >
+                                        Acceso a construccion <br />de hábitos
+                                        esenciales
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="pricing-button-holder">
+                                <div>
+                                  <a
+                                    href="https://coachd-booking.short.gy/Formulario%20KYC"
+                                    target="_blank"
+                                    class="modular-button modal w-inline-block"
+                                  >
+                                    <p class="modular-simple-text cta">
+                                      Empezar
+                                    </p>
+                                    <img
+                                      width="16"
+                                      sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw"
+                                      alt=""
+                                      src="images/Arrow-white-1.png"
+                                      loading="lazy"
+                                      srcset="
+                                        images/Arrow-white-1-p-500.png  500w,
+                                        images/Arrow-white-1-p-800.png  800w,
+                                        images/Arrow-white-1.png       1080w
+                                      "
+                                      class="modular-button-icon"
+                                    />
+                                    <div class="modular-button-bg"></div>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modular-card-bg"></div>
+                          </div>
+                        </div>
+                        <div
+                          id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c43ca-39969538"
+                          class="content"
+                        >
+                          <div class="modular-card">
+                            <div class="modular-pricing-04-item coaching">
+                              <p class="modular-text-l modular-color-inherit">
+                                Coaching
+                              </p>
+                              <div
+                                class="modular-pricing-04-price-holder"
+                              ></div>
+                              <div class="pricing-features-holders">
+                                <p class="modular-text secondary programa">
+                                  Servicio adicional disponible exclusivamente
+                                  para miembros destinado a orientarlos en su
+                                  jornada
+                                </p>
+                              </div>
+                              <div class="modular-pricing-04-list">
+                                <div class="modular-list-holder">
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div class="modular-list-item-icon"></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p
+                                        class="modular-text secondary programa"
+                                      >
+                                        Sesiones individuales de <br />50
+                                        minutos
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div class="modular-list-item-icon"></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p
+                                        class="modular-text secondary programa"
+                                      >
+                                        Videollamada en vivo <br />con tu Coach
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div class="modular-list-item-icon"></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p
+                                        class="modular-text secondary programa"
+                                      >
+                                        Asesoria y orientacion
+                                        <br />personalizada
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="modular-list-item-with-icon">
+                                    <div class="modular-list-item-icon-wrapper">
+                                      <div class="modular-list-item-icon"></div>
+                                    </div>
+                                    <div class="modular-list-item-text-wrap">
+                                      <p
+                                        class="modular-text secondary programa"
+                                      >
+                                        Informe de sesion <br />y
+                                        recomendaciones
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="pricing-button-holder"></div>
+                            </div>
+                            <div class="modular-card-bg"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -777,167 +1222,1003 @@
           </div>
         </div>
       </div>
-    </div>
-    <div mdlfy-content="component" class="modular-testimonials-wrapper">
-      <div class="modular-section-special-1">
-        <div class="modular-testimonial-03">
-          <div id="coach" class="modular-container">
-            <div class="modular-header-container coachd">
-              <h2 class="modular-h2-heading coachd">Conociendo a Coach D.</h2>
-              <p class="modular-text about coachd">Descubre mas sobre la persona quien desarrollo el metodo que va cambiar tu cuerpo, salud y vida para siempre.</p>
-            </div>
-            <div class="modular-card modular-overflow-hidden bio">
-              <div class="modular-testimonial-03-item coachd">
-                <div class="modular-testimonial-03-image-holder"><img width="Auto" height="Auto" alt="" src="images/Coach-D-pic2.png" loading="lazy" srcset="images/Coach-D-pic2-p-500.png 500w, images/Coach-D-pic2-p-800.png 800w, images/Coach-D-pic2-p-1080.png 1080w, images/Coach-D-pic2.png 1141w" sizes="100vw" class="modular-testimonial-03-image"></div>
-                <div id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c4522-39969538" class="modular-testimonial-03-text-holder">
-                  <p class="modular-text bio">Más de una década de experiencia profesional y personal consolidaron a Coach D. como un experto en preparación física y manejo del peso.<br><br>El enfoque holístico de su método exclusivo, “Coach D Method”, busca fomentar autonomía y hábitos duraderos combinando ciencia, experiencia y empatía para empoderar a las personas a tomar el control de sus cuerpos a través de métodos realistas y sostenibles en el tiempo.</p>
-                  <div class="modular-testimonial-02-name-holder">
-                    <p class="modular-text-l mobile-margin-top-10">Coach D.</p>
-                    <div class="modular-opacity-50-pct">
-                      <p class="modular-text bio">CEO</p>
+      <div mdlfy-content="component" class="modular-services-wrapper">
+        <div class="modular-services-06">
+          <div class="modular-section">
+            <div class="modular-container pasos">
+              <div class="proceso-inscripcion">
+                <div class="text-block-4">Inscripciones</div>
+                <h3 class="heading-2">Pasos a seguir</h3>
+                <div class="text-block-5">
+                  El proceso de inscripcion es facil y sencillo. Solo sigue
+                  estos pasos para unirte a nostros y empezar tu jornada hacia
+                  una vida mas feliz y saludable.
+                </div>
+              </div>
+              <div class="proceso-inscripcion pasos _1">
+                <div class="text-block-4 _1">1er</div>
+                <h3 class="heading-2 _1">Chat con soporte</h3>
+                <div class="text-block-5 _1">
+                  Empieza resolviendo tus dudas y preguntas mas urgentes via
+                  chat con nuestro agente de soporte en vivo para asegurarte que
+                  nuestros servicios son para ti.
+                </div>
+              </div>
+              <div class="proceso-inscripcion pasos">
+                <div class="text-block-4">2do</div>
+                <h3 class="heading-2">Llena el formulario</h3>
+                <div class="text-block-5">
+                  Este formulario es indispensable para asesar tus necesidades
+                  antes de llevar a cabo la consulta introductoria. No se
+                  agendara la sesion hasta que el formulario haya sido
+                  completado.
+                </div>
+              </div>
+              <div class="proceso-inscripcion pasos">
+                <div class="text-block-4">3ro</div>
+                <h3 class="heading-2">Agenda tu consulta</h3>
+                <div class="text-block-5">
+                  Una vez que hayas aclarado tus dudas con soporte y enviado tu
+                  formulario completo podrá agendar tu consulta introductoria
+                  gratuita, requerida para poder inscribirse.
+                </div>
+              </div>
+              <div class="proceso-inscripcion pasos">
+                <div class="text-block-4">4to</div>
+                <h3 class="heading-2">Consulta introductoria</h3>
+                <div class="text-block-5">
+                  Durante esta sesión, se abordará los puntos clave de tu
+                  formulario de evaluación y resolverá cualquier inquietud o
+                  duda que aún puedas tener.
+                </div>
+              </div>
+              <div class="proceso-inscripcion pasos">
+                <div class="text-block-4">5to</div>
+                <h3 class="heading-2">Activa tu subscripcion</h3>
+                <div class="text-block-5">
+                  Cuando te sientas completamente listo y decidido a comenzar,
+                  recibirás un correo electrónico con el vinculo de pago para
+                  suscribirte al programa que hayas elegido.
+                </div>
+              </div>
+              <div class="proceso-inscripcion pasos">
+                <div class="text-block-4">6to</div>
+                <h3 class="heading-2">Accede a tu cuenta</h3>
+                <div class="text-block-5">
+                  Con tu suscripción confirmada, solo te quedará acceder a tu
+                  cuenta y dar inicio a tu viaje hacia una vida más saludable y
+                  plena bajo nuestra guía experta.
+                </div>
+              </div>
+              <div class="modular-features-02 inscripcion">
+                <div
+                  id="inscripcion"
+                  class="modular-services-03-main-grid inscripcion"
+                >
+                  <div
+                    id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c448f-39969538"
+                    class="modular-grid-content modular-grid-content-relative pasos"
+                  >
+                    <div
+                      class="modular-sticky-content no-sticky-content-on-tablet"
+                    >
+                      <div
+                        class="modular-header-container modular-left-header-container"
+                      >
+                        <div
+                          data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c4492"
+                          style="opacity: 0"
+                          class="modular-text-left"
+                        >
+                          <div class="modular-subtitle-wrap">
+                            <p class="modular-subtitle">Inscripciones</p>
+                          </div>
+                          <h2 class="modular-h1-heading section">
+                            Pasos<br />a seguir
+                          </h2>
+                          <div class="modular-text-l">
+                            <p class="modular-text inscripcion">
+                              El proceso de inscripcion es facil y sencillo.
+                              Solo sigue estos pasos para unirte a nostros y
+                              empezar tu jornada hacia una vida mas feliz y
+                              saludable.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modular-grid-content">
+                    <div class="w-layout-grid modular-services-03-grid-boxes">
+                      <div
+                        id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c44a0-39969538"
+                        class="modular-grid-content"
+                      >
+                        <div
+                          data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c44a1"
+                          class="modular-services-03-item"
+                        >
+                          <div class="modular-services-03-item-content">
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-1st"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <p class="modular-subtitle _1">1er</p>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-2nd"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <h2 class="modular-h3-heading _1">
+                                  Chat con soporte
+                                </h2>
+                              </div>
+                            </div>
+                            <div class="modular-hero-anim-load-3rd proceso">
+                              <p
+                                class="modular-text modular-grey-color proceso _1"
+                              >
+                                Empieza resolviendo tus dudas y preguntas mas
+                                urgentes via chat con nuestro agente de soporte
+                                en vivo para asegurarte que nuestros servicios
+                                son para ti.
+                              </p>
+                            </div>
+                          </div>
+                          <div
+                            class="modular-services-03-bg-wrap block-1"
+                          ></div>
+                          <div class="modular-services-03-bg block-1 _1"></div>
+                        </div>
+                      </div>
+                      <div class="modular-grid-content">
+                        <div
+                          data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c44b4"
+                          class="modular-services-03-item"
+                        >
+                          <div class="modular-services-03-item-content">
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-1st"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <p class="modular-subtitle">2do</p>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-2nd"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <h2 class="modular-h3-heading">
+                                  Llena el Formulario
+                                </h2>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                opacity: 0;
+                              "
+                              class="modular-hero-anim-load-3rd"
+                            >
+                              <p
+                                class="modular-text modular-grey-color proceso"
+                              >
+                                Este formulario es indispensable para asesar tus
+                                necesidades antes de llevar a cabo la consulta
+                                introductoria. No se agendara la sesion hasta
+                                que el formulario haya sido completado.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="modular-services-03-bg-wrap">
+                            <div class="modular-services-03-bg secondary"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modular-grid-content">
+                        <div
+                          data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c44c7"
+                          class="modular-services-03-item"
+                        >
+                          <div class="modular-services-03-item-content">
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-1st"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <p class="modular-subtitle">3er</p>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-2nd"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <h2 class="modular-h3-heading">
+                                  Agenda tu Consulta
+                                </h2>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                opacity: 0;
+                              "
+                              class="modular-hero-anim-load-3rd"
+                            >
+                              <p class="modular-text inscripcion">
+                                Una vez que hayas aclarado tus dudas con soporte
+                                y enviado tu formulario completo podrá agendar
+                                tu consulta introductoria gratuita, requerida
+                                para poder inscribirse.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="modular-services-03-bg-wrap">
+                            <div class="modular-services-03-bg secondary"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modular-grid-content">
+                        <div
+                          data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c44da"
+                          class="modular-services-03-item"
+                        >
+                          <div class="modular-services-03-item-content">
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-1st"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <p class="modular-subtitle">4to</p>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-2nd"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <h2 class="modular-h3-heading">
+                                  Consulta Introductoria
+                                </h2>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                opacity: 0;
+                              "
+                              class="modular-hero-anim-load-3rd"
+                            >
+                              <p class="modular-text inscripcion">
+                                Durante esta sesión, se abordará los puntos
+                                clave de tu formulario de evaluación y resolverá
+                                cualquier inquietud o duda que aún puedas tener.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="modular-services-03-bg-wrap">
+                            <div class="modular-services-03-bg secondary"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modular-grid-content">
+                        <div
+                          data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c44ed"
+                          class="modular-services-03-item"
+                        >
+                          <div class="modular-services-03-item-content">
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-1st"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <p class="modular-subtitle">5to</p>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-2nd"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <h2 class="modular-h3-heading">
+                                  Activa tu Subscripcion
+                                </h2>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                opacity: 0;
+                              "
+                              class="modular-hero-anim-load-3rd"
+                            >
+                              <p class="modular-text inscripcion">
+                                Cuando te sientas completamente listo y decidido
+                                a comenzar, recibirás un correo electrónico con
+                                el vinculo de pago para suscribirte al programa
+                                que hayas elegido.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="modular-services-03-bg-wrap">
+                            <div class="modular-services-03-bg secondary"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modular-grid-content">
+                        <div
+                          data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c4500"
+                          class="modular-services-03-item"
+                        >
+                          <div class="modular-services-03-item-content">
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-1st"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <p class="modular-subtitle">6to</p>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                              "
+                              class="modular-hero-anim-load-2nd"
+                            >
+                              <div class="modular-margin-top-xs">
+                                <h2 class="modular-h3-heading">
+                                  Accede a tu cuenta
+                                </h2>
+                              </div>
+                            </div>
+                            <div
+                              style="
+                                -webkit-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -moz-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                -ms-transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                transform: translate3d(0, 20px, 0)
+                                  scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                                  rotateZ(0) skew(0, 0);
+                                opacity: 0;
+                              "
+                              class="modular-hero-anim-load-3rd"
+                            >
+                              <p class="modular-text inscripcion">
+                                Con tu suscripción confirmada, solo te quedará
+                                acceder a tu cuenta y dar inicio a tu viaje
+                                hacia una vida más saludable y plena bajo
+                                nuestra guía experta.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="modular-services-03-bg-wrap">
+                            <div class="modular-services-03-bg secondary"></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="modular-card-bg"></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div mdlfy-content="component" class="m-feature-wrapper">
-      <div class="modular-section">
-        <div class="modular-features-02">
-          <div id="pagos" class="modular-container footer">
-            <div class="modular-features-02">
-              <div class="modular-features-09-main-grid pagos">
-                <div id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c4537-39969538" class="modular-grid-content modular-grid-content-relative">
-                  <div class="modular-features-09-content header inscripcion">
-                    <h2 class="modular-h2-heading">Pagos seguros</h2>
-                    <p class="modular-light-grey-text payment">La seguridad de tus transacciones es esencial para nostros. Usamos servicios reconocidas mundialmente por su seguridad y privacidad para asegurar que tu información financiera se mantenga protegida en todo momento.</p>
+      <div mdlfy-content="component" class="modular-testimonials-wrapper">
+        <div class="modular-section-special-1">
+          <div class="modular-testimonial-03">
+            <div id="coach" class="modular-container">
+              <div class="modular-header-container coachd">
+                <h2 class="modular-h2-heading coachd">Conociendo a Coach D.</h2>
+                <p class="modular-text about coachd">
+                  Descubre mas sobre la persona quien desarrollo el metodo que
+                  va cambiar tu cuerpo, salud y vida para siempre.
+                </p>
+              </div>
+              <div class="modular-card modular-overflow-hidden bio">
+                <div class="modular-testimonial-03-item coachd">
+                  <div class="modular-testimonial-03-image-holder">
+                    <img
+                      width="Auto"
+                      height="Auto"
+                      alt=""
+                      src="images/Coach-D-pic2.png"
+                      loading="lazy"
+                      srcset="
+                        images/Coach-D-pic2-p-500.png   500w,
+                        images/Coach-D-pic2-p-800.png   800w,
+                        images/Coach-D-pic2-p-1080.png 1080w,
+                        images/Coach-D-pic2.png        1141w
+                      "
+                      sizes="100vw"
+                      class="modular-testimonial-03-image"
+                    />
                   </div>
-                </div>
-                <div id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c453d-39969538" class="modular-grid-content">
-                  <div class="w-layout-grid modular-features-09-grid-boxes pagos">
-                    <div class="modular-grid-content">
-                      <div class="modular-features-08-item pagos">
-                        <div class="modular-grid-content features _2">
-                          <div class="modular-text-main-color">
-                            <p class="modular-text modular-color-inherit">Transacciones Cifradas</p>
-                          </div>
-                          <h2 class="modular-h3-heading">Proteccion</h2>
-                          <p class="modular-light-grey-text">Evita los fraudes</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modular-grid-content pagos">
-                      <div class="modular-features-08-item">
-                        <div class="modular-grid-content features _2">
-                          <div class="modular-text-main-color">
-                            <p class="modular-text modular-color-inherit">Transparencia</p>
-                          </div>
-                          <h2 class="modular-h3-heading">Confianza</h2>
-                          <p class="modular-light-grey-text">Facturacion clara</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modular-grid-content features">
-                      <div class="modular-features-08-item">
-                        <div class="modular-grid-content features _2">
-                          <div class="modular-text-main-color">
-                            <p class="modular-text modular-color-inherit">Facilidad de Pago</p>
-                          </div>
-                          <h2 class="modular-h3-heading">Sencillo</h2>
-                          <p class="modular-light-grey-text">Paga con un click</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modular-grid-content">
-                      <div class="modular-features-08-item">
-                        <div class="modular-grid-content features _2">
-                          <div class="modular-text-main-color">
-                            <p class="modular-text modular-color-inherit">Criptomonedas</p>
-                          </div>
-                          <h2 class="modular-h3-heading">Flexible</h2>
-                          <p class="modular-light-grey-text">Aceptamos Bitcoin</p>
-                        </div>
+                  <div
+                    id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c4522-39969538"
+                    class="modular-testimonial-03-text-holder"
+                  >
+                    <p class="modular-text bio">
+                      Más de una década de experiencia profesional y personal
+                      consolidaron a Coach D. como un experto en preparación
+                      física y manejo del peso.<br /><br />El enfoque holístico
+                      de su método exclusivo, “Coach D Method”, busca fomentar
+                      autonomía y hábitos duraderos combinando ciencia,
+                      experiencia y empatía para empoderar a las personas a
+                      tomar el control de sus cuerpos a través de métodos
+                      realistas y sostenibles en el tiempo.
+                    </p>
+                    <div class="modular-testimonial-02-name-holder">
+                      <p class="modular-text-l mobile-margin-top-10">
+                        Coach D.
+                      </p>
+                      <div class="modular-opacity-50-pct">
+                        <p class="modular-text bio">CEO</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div id="consulta" class="modular-container modular-container-on-bg inscripcion w-node-a5180168-abeb-3f1f-a929-c21715da1f18-39969538">
-                  <div class="modular-header-container inscripciones">
-                    <div class="modular-text-center inscripcion">
-                      <div class="modular-hero-anim-load-1st">
-                        <div class="modular-subtitle-wrap">
-                          <p class="modular-subtitle modular-color-white">Inscripcion</p>
+                <div class="modular-card-bg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div mdlfy-content="component" class="m-feature-wrapper">
+        <div class="modular-section">
+          <div class="modular-features-02">
+            <div id="pagos" class="modular-container footer">
+              <div class="modular-features-02">
+                <div class="modular-features-09-main-grid pagos">
+                  <div
+                    id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c4537-39969538"
+                    class="modular-grid-content modular-grid-content-relative"
+                  >
+                    <div class="modular-features-09-content header inscripcion">
+                      <h2 class="modular-h2-heading">Pagos seguros</h2>
+                      <p class="modular-light-grey-text payment">
+                        La seguridad de tus transacciones es esencial para
+                        nostros. Usamos servicios reconocidas mundialmente por
+                        su seguridad y privacidad para asegurar que tu
+                        información financiera se mantenga protegida en todo
+                        momento.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c453d-39969538"
+                    class="modular-grid-content"
+                  >
+                    <div
+                      class="w-layout-grid modular-features-09-grid-boxes pagos"
+                    >
+                      <div class="modular-grid-content">
+                        <div class="modular-features-08-item pagos">
+                          <div class="modular-grid-content features _2">
+                            <div class="modular-text-main-color">
+                              <p class="modular-text modular-color-inherit">
+                                Transacciones Cifradas
+                              </p>
+                            </div>
+                            <h2 class="modular-h3-heading">Proteccion</h2>
+                            <p class="modular-light-grey-text">
+                              Evita los fraudes
+                            </p>
+                          </div>
                         </div>
                       </div>
-                      <div class="modular-hero-anim-load-2nd">
-                        <h2 class="modular-h2-heading modular-color-white">¡No esperes más para vivir la vida que te mereces!</h2>
-                      </div>
-                      <div class="modular-hero-anim-load-3rd inscripcion">
-                        <div class="modular-opacity-70-pct">
-                          <p class="modular-text modular-color-white inscripcion">Despierta cada mañana sintiéndote lleno de energía y confianza. Descubre cómo el metodo de Coach D. puede guiarte hacia una vida más feliz, saludable y libre.</p>
+                      <div class="modular-grid-content pagos">
+                        <div class="modular-features-08-item">
+                          <div class="modular-grid-content features _2">
+                            <div class="modular-text-main-color">
+                              <p class="modular-text modular-color-inherit">
+                                Transparencia
+                              </p>
+                            </div>
+                            <h2 class="modular-h3-heading">Confianza</h2>
+                            <p class="modular-light-grey-text">
+                              Facturacion clara
+                            </p>
+                          </div>
                         </div>
                       </div>
-                      <div class="modular-hero-anim-load-4th">
-                        <div class="modular-buttons-holder-center">
-                          <div>
-                            <a href="https://coachd-booking.short.gy/Formulario%20KYC" target="_blank" class="modular-button cta w-inline-block">
-                              <p class="modular-simple-text cta inscripcion">Consulta</p><img width="16" sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw" alt="" src="images/Arrow-white-1.png" loading="lazy" srcset="images/Arrow-white-1-p-500.png 500w, images/Arrow-white-1-p-800.png 800w, images/Arrow-white-1.png 1080w" class="modular-button-icon cta">
+                      <div class="modular-grid-content features">
+                        <div class="modular-features-08-item">
+                          <div class="modular-grid-content features _2">
+                            <div class="modular-text-main-color">
+                              <p class="modular-text modular-color-inherit">
+                                Facilidad de Pago
+                              </p>
+                            </div>
+                            <h2 class="modular-h3-heading">Sencillo</h2>
+                            <p class="modular-light-grey-text">
+                              Paga con un click
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modular-grid-content">
+                        <div class="modular-features-08-item">
+                          <div class="modular-grid-content features _2">
+                            <div class="modular-text-main-color">
+                              <p class="modular-text modular-color-inherit">
+                                Criptomonedas
+                              </p>
+                            </div>
+                            <h2 class="modular-h3-heading">Flexible</h2>
+                            <p class="modular-light-grey-text">
+                              Aceptamos Bitcoin
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    id="consulta"
+                    class="modular-container modular-container-on-bg inscripcion w-node-a5180168-abeb-3f1f-a929-c21715da1f18-39969538"
+                  >
+                    <div class="modular-header-container inscripciones">
+                      <div class="modular-text-center inscripcion">
+                        <div class="modular-hero-anim-load-1st">
+                          <div class="modular-subtitle-wrap">
+                            <p class="modular-subtitle modular-color-white">
+                              Inscripcion
+                            </p>
+                          </div>
+                        </div>
+                        <div class="modular-hero-anim-load-2nd">
+                          <h2 class="modular-h2-heading modular-color-white">
+                            ¡No esperes más para vivir la vida que te mereces!
+                          </h2>
+                        </div>
+                        <div class="modular-hero-anim-load-3rd inscripcion">
+                          <div class="modular-opacity-70-pct">
+                            <p
+                              class="modular-text modular-color-white inscripcion"
+                            >
+                              Despierta cada mañana sintiéndote lleno de energía
+                              y confianza. Descubre cómo el metodo de Coach D.
+                              puede guiarte hacia una vida más feliz, saludable
+                              y libre.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="modular-hero-anim-load-4th">
+                          <div class="modular-buttons-holder-center">
+                            <div>
+                              <a
+                                href="https://coachd-booking.short.gy/Formulario%20KYC"
+                                target="_blank"
+                                class="modular-button cta w-inline-block"
+                              >
+                                <p class="modular-simple-text cta inscripcion">
+                                  Consulta
+                                </p>
+                                <img
+                                  width="16"
+                                  sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw"
+                                  alt=""
+                                  src="images/Arrow-white-1.png"
+                                  loading="lazy"
+                                  srcset="
+                                    images/Arrow-white-1-p-500.png  500w,
+                                    images/Arrow-white-1-p-800.png  800w,
+                                    images/Arrow-white-1.png       1080w
+                                  "
+                                  class="modular-button-icon cta"
+                                />
+                                <div class="modular-button-bg"></div>
+                              </a>
+                            </div>
+                            <div>
+                              <a
+                                data-w-id="83126a03-67f1-f89a-1dd9-5865bb75ac11"
+                                href="#"
+                                class="modular-button-secondary modal w-inline-block"
+                              >
+                                <p class="modular-simple-text small-text cta">
+                                  Saber Más
+                                </p>
+                                <img
+                                  width="16"
+                                  sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw"
+                                  alt=""
+                                  src="images/Arrow-white-1.png"
+                                  loading="lazy"
+                                  srcset="
+                                    images/Arrow-white-1-p-500.png  500w,
+                                    images/Arrow-white-1-p-800.png  800w,
+                                    images/Arrow-white-1.png       1080w
+                                  "
+                                  class="modular-button-icon cta"
+                                />
+                                <div class="modular-button-2-bg"></div>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="div-block-18 footer">
+                            <a
+                              href="https://coachd-booking.short.gy/Formulario%20KYC"
+                              target="_blank"
+                              class="modular-button w-inline-block"
+                            >
+                              <p class="modular-simple-text hero">Consulta</p>
+                              <img
+                                width="16"
+                                sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw"
+                                alt=""
+                                src="images/Arrow-white-1.png"
+                                loading="lazy"
+                                srcset="
+                                  images/Arrow-white-1-p-500.png  500w,
+                                  images/Arrow-white-1-p-800.png  800w,
+                                  images/Arrow-white-1.png       1080w
+                                "
+                                class="modular-button-icon"
+                              />
                               <div class="modular-button-bg"></div>
                             </a>
-                          </div>
-                          <div>
-                            <a data-w-id="83126a03-67f1-f89a-1dd9-5865bb75ac11" href="#" class="modular-button-secondary modal w-inline-block">
-                              <p class="modular-simple-text small-text cta">Saber Más</p><img width="16" sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw" alt="" src="images/Arrow-white-1.png" loading="lazy" srcset="images/Arrow-white-1-p-500.png 500w, images/Arrow-white-1-p-800.png 800w, images/Arrow-white-1.png 1080w" class="modular-button-icon cta">
+                            <a
+                              data-w-id="f6d7a1e1-ec59-47b7-9d85-7c98a2ecfaa6"
+                              href="#"
+                              class="modular-button-secondary w-inline-block"
+                            >
+                              <p
+                                class="modular-simple-text small-text hero inscripcion"
+                              >
+                                Saber Más
+                              </p>
                               <div class="modular-button-2-bg"></div>
+                              <img
+                                width="16"
+                                sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw"
+                                alt=""
+                                src="images/Arrow-white-1.png"
+                                loading="lazy"
+                                srcset="
+                                  images/Arrow-white-1-p-500.png  500w,
+                                  images/Arrow-white-1-p-800.png  800w,
+                                  images/Arrow-white-1.png       1080w
+                                "
+                                class="modular-button-icon"
+                              />
                             </a>
                           </div>
-                        </div>
-                        <div class="div-block-18 footer">
-                          <a href="https://coachd-booking.short.gy/Formulario%20KYC" target="_blank" class="modular-button w-inline-block">
-                            <p class="modular-simple-text hero">Consulta</p><img width="16" sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw" alt="" src="images/Arrow-white-1.png" loading="lazy" srcset="images/Arrow-white-1-p-500.png 500w, images/Arrow-white-1-p-800.png 800w, images/Arrow-white-1.png 1080w" class="modular-button-icon">
-                            <div class="modular-button-bg"></div>
-                          </a>
-                          <a data-w-id="f6d7a1e1-ec59-47b7-9d85-7c98a2ecfaa6" href="#" class="modular-button-secondary w-inline-block">
-                            <p class="modular-simple-text small-text hero inscripcion">Saber Más</p>
-                            <div class="modular-button-2-bg"></div><img width="16" sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, (max-width: 1919px) 16px, 1vw" alt="" src="images/Arrow-white-1.png" loading="lazy" srcset="images/Arrow-white-1-p-500.png 500w, images/Arrow-white-1-p-800.png 800w, images/Arrow-white-1.png 1080w" class="modular-button-icon">
-                          </a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="rl-padding-global-3">
-              <div class="rl-container-large">
-                <div class="rl-padding-section-medium-2">
-                  <div class="w-layout-grid rl_footer4_top-wrapper">
-                    <a href="#" id="w-node-_3c209005-b730-0ae9-0663-e96b4f6d4917-39969538" class="rl_footer4_logo-link w-nav-brand"><img src="images/Coach-D-Logo.png" loading="lazy" width="50" height="Auto" alt="" class="rl_footer4_logo"></a>
-                    <div class="w-layout-grid rl_footer4_link-list">
-                      <a href="https://coachdmethod.helpsite.com/contact" target="_blank" class="rl_footer4_link-2">Contacto</a>
-                      <a href="https://coachdmethod.helpsite.com/categories/31935-support" target="_blank" class="rl_footer4_link-2">Ayuda</a>
-                      <a href="https://coachdmethod.helpsite.com/categories/32193-informacion-general" target="_blank" class="rl_footer4_link-2">Info</a>
-                      <a href="https://coachdmethod.helpsite.com/categories/31939-preguntas-frecuentes" target="_blank" class="rl_footer4_link-2">FAQ</a>
+              <div class="rl-padding-global-3">
+                <div class="rl-container-large">
+                  <div class="rl-padding-section-medium-2">
+                    <div class="w-layout-grid rl_footer4_top-wrapper">
+                      <a
+                        href="#"
+                        id="w-node-_3c209005-b730-0ae9-0663-e96b4f6d4917-39969538"
+                        class="rl_footer4_logo-link w-nav-brand"
+                        ><img
+                          src="images/Coach-D-Logo.png"
+                          loading="lazy"
+                          width="50"
+                          height="Auto"
+                          alt=""
+                          class="rl_footer4_logo"
+                      /></a>
+                      <div class="w-layout-grid rl_footer4_link-list">
+                        <a
+                          href="https://coachdmethod.helpsite.com/contact"
+                          target="_blank"
+                          class="rl_footer4_link-2"
+                          >Contacto</a
+                        >
+                        <a
+                          href="https://coachdmethod.helpsite.com/categories/31935-support"
+                          target="_blank"
+                          class="rl_footer4_link-2"
+                          >Ayuda</a
+                        >
+                        <a
+                          href="https://coachdmethod.helpsite.com/categories/32193-informacion-general"
+                          target="_blank"
+                          class="rl_footer4_link-2"
+                          >Info</a
+                        >
+                        <a
+                          href="https://coachdmethod.helpsite.com/categories/31939-preguntas-frecuentes"
+                          target="_blank"
+                          class="rl_footer4_link-2"
+                          >FAQ</a
+                        >
+                      </div>
+                      <div class="div-block-8 social">
+                        <a
+                          href="https://www.instagram.com/coachdmethod"
+                          target="_blank"
+                          class="w-inline-block"
+                          ><img
+                            src="images/instagram.png"
+                            loading="lazy"
+                            width="20"
+                            sizes="(max-width: 1919px) 20px, 1vw"
+                            alt=""
+                            srcset="
+                              images/instagram-p-500.png  500w,
+                              images/instagram-p-800.png  800w,
+                              images/instagram.png       1080w
+                            "
+                        /></a>
+                        <a
+                          href="https://www.https://www.tiktok.com/@coachdmethod"
+                          target="_blank"
+                          class="w-inline-block"
+                          ><img
+                            src="images/tik-tok.png"
+                            loading="lazy"
+                            width="20"
+                            sizes="(max-width: 1919px) 20px, 1vw"
+                            alt=""
+                            srcset="
+                              images/tik-tok-p-500.png  500w,
+                              images/tik-tok-p-800.png  800w,
+                              images/tik-tok.png       1080w
+                            "
+                            class="image-8"
+                        /></a>
+                      </div>
                     </div>
-                    <div class="div-block-8 social">
-                      <a href="https://www.instagram.com/coachdmethod" target="_blank" class="w-inline-block"><img src="images/instagram.png" loading="lazy" width="20" sizes="(max-width: 1919px) 20px, 1vw" alt="" srcset="images/instagram-p-500.png 500w, images/instagram-p-800.png 800w, images/instagram.png 1080w"></a>
-                      <a href="https://www.https://www.tiktok.com/@coachdmethod" target="_blank" class="w-inline-block"><img src="images/tik-tok.png" loading="lazy" width="20" sizes="(max-width: 1919px) 20px, 1vw" alt="" srcset="images/tik-tok-p-500.png 500w, images/tik-tok-p-800.png 800w, images/tik-tok.png 1080w" class="image-8"></a>
+                    <div class="rl_footer4_spacing-block1-2"></div>
+                    <div class="rl_footer4_line-divider"></div>
+                    <div class="rl_footer4_spacing-block2-2"></div>
+                    <div class="w-layout-grid rl_footer4_bottom-wrapper">
+                      <div
+                        id="w-node-_3c209005-b730-0ae9-0663-e96b4f6d4933-39969538"
+                        class="rl_footer4_credit-text"
+                      >
+                        © 2025 Coach D. Method - All right reserved.
+                      </div>
+                      <a
+                        href="https://coachdmethod.helpsite.com/articles/135064-terminos-de-uso"
+                        target="_blank"
+                        class="rl_footer4_legal-link"
+                        >Terminos de servicio</a
+                      >
                     </div>
-                  </div>
-                  <div class="rl_footer4_spacing-block1-2"></div>
-                  <div class="rl_footer4_line-divider"></div>
-                  <div class="rl_footer4_spacing-block2-2"></div>
-                  <div class="w-layout-grid rl_footer4_bottom-wrapper">
-                    <div id="w-node-_3c209005-b730-0ae9-0663-e96b4f6d4933-39969538" class="rl_footer4_credit-text">© 2025 Coach D. Method - All right reserved.</div>
-                    <a href="https://coachdmethod.helpsite.com/articles/135064-terminos-de-uso" target="_blank" class="rl_footer4_legal-link">Terminos de servicio</a>
-                  </div>
-                  <div class="div-block-21">
-                    <a href="https://coachdmethod.helpsite.com/articles/135064-terminos-de-uso" target="_blank" class="link">Terminos de servicio</a>
-                    <div class="text-block-7">© 2025 Coach D. Method - All right reserved.</div>
+                    <div class="div-block-21">
+                      <a
+                        href="https://coachdmethod.helpsite.com/articles/135064-terminos-de-uso"
+                        target="_blank"
+                        class="link"
+                        >Terminos de servicio</a
+                      >
+                      <div class="text-block-7">
+                        © 2025 Coach D. Method - All right reserved.
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -945,21 +2226,102 @@
           </div>
         </div>
       </div>
-    </div>
-    <div mdlfy-content="component" class="modular-footer-wrapper">
-      <div class="modular-section-footer">
-        <div class="modular-footer-08">
-          <div class="modular-footer-wrap">
-            <div class="modular-footer-08-wrap"></div>
+      <div mdlfy-content="component" class="modular-footer-wrapper">
+        <div class="modular-section-footer">
+          <div class="modular-footer-08">
+            <div class="modular-footer-wrap">
+              <div class="modular-footer-08-wrap"></div>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
-    <div class="div-block-12">
-      <div data-w-id="3f6318b7-1068-8983-050f-9ac99ade0fd1" class="div-block-22"><img src="images/bubble-chat.png" loading="lazy" width="60" data-w-id="f83493b5-5047-c8bd-32f1-bc5ed9fd9ceb" alt="" srcset="images/bubble-chat-p-500.png 500w, images/bubble-chat-p-800.png 800w, images/bubble-chat.png 1080w" sizes="60px" class="image-10"></div>
-    </div>
-  </div>
-  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6876c7fd8f3c26c5de4e06cd" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script src="js/webflow.js" type="text/javascript"></script>
-</body>
+    <script
+      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6876c7fd8f3c26c5de4e06cd"
+      type="text/javascript"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/webflow.js" type="text/javascript"></script>
+    <!--<script src="js/webflow.js" type="text/javascript"></script>-->
+
+    <!-- n8n Chat Widget CDN Embed -->
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<style>
+  /* n8n Chat Widget Custom CSS Variables */
+  :root {
+    --chat--color-primary: #57946e;
+    --chat--color-primary-shade-50: #4e8562;
+    --chat--color-primary-shade-100: #447556;
+    --chat--color-secondary: #4c7a94;
+    --chat--color-secondary-shade-50: #446e85;
+    --chat--color-white: #ffffff;
+    --chat--color-light: #f3f7fa;
+    --chat--color-light-shade-50: #e8eff4;
+    --chat--color-light-shade-100: #d3dfe6;
+    --chat--color-medium: #d2d4d9;
+    --chat--color-dark: #101330;
+    --chat--color-disabled: #777980;
+    --chat--color-typing: #404040;
+
+    --chat--spacing: 1rem;
+    --chat--border-radius: 0.25rem;
+    --chat--transition-duration: 0.15s;
+
+    --chat--window--width: 350px;
+    --chat--window--height: 500px;
+
+    --chat--header-height: 120px;
+    --chat--header--padding: 2em;
+    --chat--header--background: var(--chat--color-primary);
+    --chat--header--color: var(--chat--color-white);
+    --chat--header--border-top: none;
+    --chat--header--border-bottom: none;
+    --chat--heading--font-size: 1.5em;
+    --chat--subtitle--font-size: 1em;
+    --chat--subtitle--line-height: 0.5;
+  
+
+    --chat--textarea--height: 50px;
+
+    --chat--message--font-size: 1rem;
+    --chat--message--padding: var(--chat--spacing);
+    --chat--message--border-radius: var(--chat--border-radius);
+    --chat--message-line-height: 1.8;
+    --chat--message--bot--background: var(--chat--color-secondary);
+    --chat--message--bot--color: var(--chat--color-white);
+    --chat--message--bot--border: none;
+    --chat--message--user--background: var(--chat--color-white);
+    --chat--message--user--color: var(--chat--color-secondary);
+    --chat--message--user--border: 2px solid var(--chat--color-secondary);
+    --chat--message--pre--background: rgba(0, 0, 0, 0.05);
+
+    --chat--toggle--background: var(--chat--color-primary);
+    --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
+    --chat--toggle--active--background: var(--chat--color-primary-shade-100);
+    --chat--toggle--color: var(--chat--color-white);
+    --chat--toggle--size: 64px;
+  }
+</style>
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  createChat({
+    webhookUrl: 'https://chat.coachdmethod.com/webhook/5505f05b-5b31-4bee-8019-396344918561/chat',
+    initialMessages: [
+      '¡Hola! Soy Juliana, tu asistente de Coach D. Method. ¿En qué puedo ayudarte hoy?'
+    ],
+    i18n: {
+      en: {
+        title: 'Servicio al cliente',
+        subtitle: '¡Estamos aquí para ayudarte a vivir mejor!',
+        footer: '',
+        getStarted: 'Nueva Conversación',
+        inputPlaceholder: 'Escribe tu mensaje aquí...'
+      }
+    }
+  });
+</script>
+  </body>
 </html>

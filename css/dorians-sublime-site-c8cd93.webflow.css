@@ -16,6 +16,58 @@
   --untitled-ui--gray900: #101828;
   --untitled-ui--gray600: #475467;
   --kütüp-library--dim-grey: #6e6e6e;
+
+  /* n8n Chat Widget Complete CSS Variables */
+  --chat--color-primary: #57946e;
+  --chat--color-primary-shade-50: #4e8562;
+  --chat--color-primary-shade-100: #447556;
+  --chat--color-secondary: #4c7a94;
+  --chat--color-secondary-shade-50: #446e85;
+  --chat--color-white: #ffffff;
+  --chat--color-light: #f3f7fa;
+  --chat--color-light-shade-50: #e8eff4;
+  --chat--color-light-shade-100: #d3dfe6;
+  --chat--color-medium: #d2d4d9;
+  --chat--color-dark: #101330;
+  --chat--color-disabled: #777980;
+  --chat--color-typing: #404040;
+
+  --chat--spacing: 1rem;
+  --chat--border-radius: 0.25rem;
+  --chat--transition-duration: 0.15s;
+
+  --chat--window--width: 350px;
+  --chat--window--height: 500px;
+
+  --chat--header-height: auto;
+  --chat--header--padding: var(--chat--spacing);
+  --chat--header--background: var(--chat--color-primary);
+  --chat--header--color: var(--chat--color-white);
+  --chat--header--border-top: none;
+  --chat--header--border-bottom: none;
+  --chat--heading--font-size: 2em;
+  --chat--subtitle--font-size: inherit;
+  --chat--subtitle--line-height: 1.8;
+
+  --chat--textarea--height: 50px;
+
+  --chat--message--font-size: 1rem;
+  --chat--message--padding: var(--chat--spacing);
+  --chat--message--border-radius: var(--chat--border-radius);
+  --chat--message-line-height: 1.8;
+  --chat--message--bot--background: var(--chat--color-secondary);
+  --chat--message--bot--color: var(--chat--color-white);
+  --chat--message--bot--border: none;
+  --chat--message--user--background: var(--chat--color-white);
+  --chat--message--user--color: var(--chat--color-secondary);
+  --chat--message--user--border: 2px solid var(--chat--color-secondary);
+  --chat--message--pre--background: rgba(0, 0, 0, 0.05);
+
+  --chat--toggle--background: var(--chat--color-primary);
+  --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
+  --chat--toggle--active--background: var(--chat--color-primary-shade-100);
+  --chat--toggle--color: var(--chat--color-white);
+  --chat--toggle--size: 64px;
 }
 
 .w-layout-grid {

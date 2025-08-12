@@ -11,13 +11,6 @@
     <meta content="Programas y servicios" property="twitter:title" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-<meta http-equiv="Content-Security-Policy" content="
-  script-src 'self' 'unsafe-eval' 'unsafe-inline'
-    https://cdn.jsdelivr.net
-    https://chat.coachdmethod.com
-    https://ajax.googleapis.com
-    https://d3e54v103j8qbb.cloudfront.net;
-">
     <link href="css/normalize.css" rel="stylesheet" type="text/css" />
     <link href="css/webflow.css" rel="stylesheet" type="text/css" />
     <link
@@ -2244,84 +2237,238 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/webflow.js" type="text/javascript"></script>
-    <!--<script src="js/webflow.js" type="text/javascript"></script>-->
+    
+    <!-- n8n Chat Widget - Clean Implementation with Custom Styling -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <style>
+      /* Custom CSS Variables for n8n Chat Widget */
+      :root {
+        --chat--color-primary: #57946e;
+        --chat--color-primary-shade-50: #4e8562;
+        --chat--color-primary-shade-100: #447556;
+        --chat--color-secondary: #4c7a94;
+        --chat--color-secondary-shade-50: #446e85;
+        --chat--color-white: #ffffff;
+        --chat--color-light: #f3f7fa;
+        --chat--color-light-shade-50: #e8eff4;
+        --chat--color-light-shade-100: #d3dfe6;
+        --chat--color-medium: #d2d4d9;
+        --chat--color-dark: #101330;
+        --chat--color-disabled: #777980;
+        --chat--color-typing: #404040;
 
-    <!-- n8n Chat Widget CDN Embed -->
-<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-<style>
-  /* n8n Chat Widget Custom CSS Variables */
-  :root {
-    --chat--color-primary: #57946e;
-    --chat--color-primary-shade-50: #4e8562;
-    --chat--color-primary-shade-100: #447556;
-    --chat--color-secondary: #4c7a94;
-    --chat--color-secondary-shade-50: #446e85;
-    --chat--color-white: #ffffff;
-    --chat--color-light: #f3f7fa;
-    --chat--color-light-shade-50: #e8eff4;
-    --chat--color-light-shade-100: #d3dfe6;
-    --chat--color-medium: #d2d4d9;
-    --chat--color-dark: #101330;
-    --chat--color-disabled: #777980;
-    --chat--color-typing: #404040;
+        --chat--spacing: 1rem;
+        --chat--border-radius: 0.25rem;
+        --chat--transition-duration: 0.15s;
 
-    --chat--spacing: 1rem;
-    --chat--border-radius: 0.25rem;
-    --chat--transition-duration: 0.15s;
+        --chat--window--width: 350px;
+        --chat--window--height: 500px;
 
-    --chat--window--width: 350px;
-    --chat--window--height: 500px;
+        --chat--header-height: 120px;
+        --chat--header--padding: 1rem 2em;
+        --chat--header--background: var(--chat--color-primary);
+        --chat--header--color: var(--chat--color-white);
+        --chat--header--border-top: none;
+        --chat--header--border-bottom: none;
+        --chat--heading--font-size: 1.5em;
+        --chat--subtitle--font-size: 1em;
+        --chat--subtitle--line-height: 1.2;
 
-    --chat--header-height: 120px;
-    --chat--header--padding: 2em;
-    --chat--header--background: var(--chat--color-primary);
-    --chat--header--color: var(--chat--color-white);
-    --chat--header--border-top: none;
-    --chat--header--border-bottom: none;
-    --chat--heading--font-size: 1.5em;
-    --chat--subtitle--font-size: 1em;
-    --chat--subtitle--line-height: 0.5;
-  
+        --chat--textarea--height: 50px;
+        
+        --chat--message--font-size: 1rem;
+        --chat--message--padding: var(--chat--spacing);
+        --chat--message--border-radius: var(--chat--border-radius);
+        --chat--message-line-height: 1.8;
+        --chat--message--bot--background: var(--chat--color-secondary);
+        --chat--message--bot--color: var(--chat--color-white);
+        --chat--message--bot--border: none;
+        --chat--message--user--background: var(--chat--color-white);
+        --chat--message--user--color: var(--chat--color-secondary);
+        --chat--message--user--border: 2px solid var(--chat--color-secondary);
+        --chat--message--pre--background: rgba(0, 0, 0, 0.05);
 
-    --chat--textarea--height: 50px;
-
-    --chat--message--font-size: 1rem;
-    --chat--message--padding: var(--chat--spacing);
-    --chat--message--border-radius: var(--chat--border-radius);
-    --chat--message-line-height: 1.8;
-    --chat--message--bot--background: var(--chat--color-secondary);
-    --chat--message--bot--color: var(--chat--color-white);
-    --chat--message--bot--border: none;
-    --chat--message--user--background: var(--chat--color-white);
-    --chat--message--user--color: var(--chat--color-secondary);
-    --chat--message--user--border: 2px solid var(--chat--color-secondary);
-    --chat--message--pre--background: rgba(0, 0, 0, 0.05);
-
-    --chat--toggle--background: var(--chat--color-primary);
-    --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
-    --chat--toggle--active--background: var(--chat--color-primary-shade-100);
-    --chat--toggle--color: var(--chat--color-white);
-    --chat--toggle--size: 64px;
-  }
-</style>
-<script type="module">
-  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
-  createChat({
-    webhookUrl: 'https://chat.coachdmethod.com/webhook/5505f05b-5b31-4bee-8019-396344918561/chat',
-    initialMessages: [
-      '¡Hola! Soy Juliana, tu asistente de Coach D. Method. ¿En qué puedo ayudarte hoy?'
-    ],
-    i18n: {
-      en: {
-        title: 'Servicio al cliente',
-        subtitle: '¡Estamos aquí para ayudarte a vivir mejor!',
-        footer: '',
-        getStarted: 'Nueva Conversación',
-        inputPlaceholder: 'Escribe tu mensaje aquí...'
+        --chat--toggle--background: var(--chat--color-primary);
+        --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
+        --chat--toggle--active--background: var(--chat--color-primary-shade-100);
+        --chat--toggle--color: var(--chat--color-white);
+        --chat--toggle--size: 64px;
       }
-    }
-  });
-</script>
+    </style>
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+      
+      // Create the chat widget and store reference
+      let chatInstance = null;
+      
+      chatInstance = createChat({
+        webhookUrl: 'https://chat.coachdmethod.com/webhook/cd8684a5-3997-4fb3-aac0-3c992e304c08/chat',
+        initialMessages: [
+          '¡Hola! Soy Juliana, tu agente de soporte IA. ¿En qué puedo ayudarte hoy?'
+        ],
+        i18n: {
+          en: {
+            title: 'Servicio al cliente',
+            subtitle: '¡Estamos aquí para ayudarte a vivir mejor!',
+            footer: '',
+            getStarted: 'Nueva Conversación',
+            inputPlaceholder: 'Escribe tu mensaje aquí...'
+          }
+        }
+      });
+
+      // Function to open chat with a specific message
+      window.openChatWithMessage = function(message) {
+        console.log('Opening chat with message:', message);
+        
+        // Try multiple selectors to find the chat toggle button
+        const possibleSelectors = [
+          '[data-chat="toggle"]',
+          '.chat-toggle',
+          '[class*="toggle"]',
+          '[class*="chat"]',
+          'button',
+          'div[role="button"]'
+        ];
+        
+        let chatToggle = null;
+        
+        // Look for chat toggle button
+        for (let selector of possibleSelectors) {
+          const elements = document.querySelectorAll(selector);
+          for (let element of elements) {
+            const elementText = element.textContent || element.getAttribute('aria-label') || '';
+            const elementClass = element.className || '';
+            
+            if (elementText.toLowerCase().includes('chat') || 
+                elementClass.toLowerCase().includes('chat') ||
+                elementClass.toLowerCase().includes('toggle')) {
+              chatToggle = element;
+              break;
+            }
+          }
+          if (chatToggle) break;
+        }
+        
+        // If no specific chat button found, look for any clickable element that might be the widget
+        if (!chatToggle) {
+          const allClickable = document.querySelectorAll('button, div[onclick], [role="button"], .w-inline-block');
+          for (let element of allClickable) {
+            const style = window.getComputedStyle(element);
+            const rect = element.getBoundingClientRect();
+            
+            // Look for elements that are positioned like a chat widget (bottom right, fixed/absolute)
+            if ((style.position === 'fixed' || style.position === 'absolute') &&
+                rect.bottom > window.innerHeight - 200 &&
+                rect.right > window.innerWidth - 200) {
+              chatToggle = element;
+              break;
+            }
+          }
+        }
+        
+        console.log('Found chat toggle:', chatToggle);
+        
+        if (chatToggle) {
+          chatToggle.click();
+          console.log('Clicked chat toggle');
+          
+          // Wait for chat to open and try to insert message
+          setTimeout(() => {
+            const inputSelectors = [
+              'textarea[placeholder*="mensaje"]',
+              'input[placeholder*="mensaje"]', 
+              'textarea[placeholder*="Escribe"]',
+              'input[placeholder*="Escribe"]',
+              'textarea',
+              'input[type="text"]',
+              '[contenteditable="true"]'
+            ];
+            
+            let chatInput = null;
+            for (let selector of inputSelectors) {
+              chatInput = document.querySelector(selector);
+              if (chatInput) break;
+            }
+            
+            console.log('Found chat input:', chatInput);
+            
+            if (chatInput) {
+              chatInput.value = message;
+              chatInput.focus();
+              
+              // Trigger multiple events to ensure the widget recognizes the text
+              ['input', 'change', 'keyup'].forEach(eventType => {
+                const event = new Event(eventType, { bubbles: true });
+                chatInput.dispatchEvent(event);
+              });
+              
+              console.log('Message inserted:', message);
+            } else {
+              console.log('Chat input not found, available inputs:', document.querySelectorAll('input, textarea'));
+            }
+          }, 1000);
+        } else {
+          console.log('Chat toggle not found. Available clickable elements:', 
+                     Array.from(document.querySelectorAll('button, [role="button"], .w-inline-block')).map(el => ({
+                       element: el,
+                       class: el.className,
+                       text: el.textContent?.slice(0, 50)
+                     })));
+        }
+      };
+
+      // Add click handlers after DOM is fully loaded
+      setTimeout(() => {
+        console.log('Setting up button handlers...');
+        
+        // Find all "Saber Más" buttons - be more specific
+        const saberMasButtons = Array.from(document.querySelectorAll('a')).filter(link => {
+          const text = link.textContent.trim();
+          return text.includes('Saber Más') || text.includes('Saber más');
+        });
+        
+        console.log('Found Saber Más buttons:', saberMasButtons.length);
+        
+        saberMasButtons.forEach((button, index) => {
+          console.log(`Setting up Saber Más button ${index + 1}:`, button.textContent.trim());
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Saber Más button clicked');
+            window.openChatWithMessage('Hola Juliana, me interesa saber más sobre los programas de Coach D Method. ¿Podrías contarme más detalles?');
+          });
+        });
+
+        // Find "Inscripciones" elements
+        const inscripcionesElements = Array.from(document.querySelectorAll('*')).filter(element => {
+          const text = element.textContent.trim();
+          return text === 'Inscripciones' && (element.classList.contains('text-block-4') || element.classList.contains('modular-subtitle'));
+        });
+        
+        console.log('Found Inscripciones elements:', inscripcionesElements.length);
+        
+        inscripcionesElements.forEach((element, index) => {
+          console.log(`Setting up Inscripciones element ${index + 1}:`, element.textContent.trim());
+          element.style.cursor = 'pointer';
+          element.style.transition = 'opacity 0.2s';
+          
+          element.addEventListener('mouseenter', function() {
+            this.style.opacity = '0.7';
+          });
+          
+          element.addEventListener('mouseleave', function() {
+            this.style.opacity = '1';
+          });
+          
+          element.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Inscripciones element clicked');
+            window.openChatWithMessage('Hola Juliana, me gustaría información sobre cómo inscribirme en los programas. ¿Cuáles son los pasos a seguir?');
+          });
+        });
+
+        console.log('Button handlers setup complete');
+      }, 2000); // Give more time for the n8n widget to fully load
+    </script>
   </body>
 </html>

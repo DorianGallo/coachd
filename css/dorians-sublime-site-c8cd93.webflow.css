@@ -8791,4 +8791,58 @@
 
 }
 
+/* --- Overrides: align secondary buttons to primary (former "Consulta") palette --- */
+.modular-button-secondary,
+.modular-button-secondary.hero,
+.modular-button-secondary.modal,
+.modular-button-secondary.inscripcion {
+  background-color: #57946e !important; /* primary green */
+  color: #fffffe !important; /* white text */
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.modular-button-secondary:hover,
+.modular-button-secondary.hero:hover,
+.modular-button-secondary.modal:hover,
+.modular-button-secondary.inscripcion:hover {
+  background-color: #4c7a94 !important; /* primary hover */
+  color: #fffffe !important;
+}
+
+/* Ensure inner text inherits white on secondary buttons */
+.modular-button-secondary .modular-simple-text,
+.modular-button-secondary .modular-simple-text.small-text,
+.modular-button-secondary .modular-simple-text.cta {
+  color: #fffffe !important;
+}
+
+  /* Bottom of landing page: 2px white border on hover */
+  #inscripcion .modular-button-secondary:hover {
+    box-shadow: inset 0 0 0 2px #fff !important;
+  }
+
+  /* Programas y servicios: Inscripción section hover border */
+  #consulta .modular-button-secondary:hover {
+    box-shadow: inset 0 0 0 2px #fff !important;
+  }
+
+  /* Center and space two-card layout in Programas y servicios */
+  @media screen and (min-width: 992px) {
+    #programas .modular-pricing-04-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: center; /* center the two columns within container */
+    }
+  }
+
+  /* Programas y servicios: list item text spacing when single-line */
+  #programas .modular-pricing-04-list .modular-list-item-text-wrap p {
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  #programas .modular-pricing-04-list .modular-list-item-with-icon:last-child .modular-list-item-text-wrap p {
+    margin-bottom: 0;
+  }
+
 

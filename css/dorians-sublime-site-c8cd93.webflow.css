@@ -8846,3 +8846,185 @@
   }
 
 
+/* Checkout pages: 2‑col layout and sticky widget */
+#checkout-control.checkout-grid,
+#checkout-ondemand.checkout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(410px, 500px);
+  gap: 24px;
+  align-items: start;
+}
+.checkout-sticky { position: sticky; top: 96px; }
+.video-16x9 { position: relative; padding-top: 56.25%; aspect-ratio: 16 / 9; height: auto; }
+.video-16x9 iframe, .video-16x9 video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 8px; }
+.checkout-widget-card { padding: 16px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+/* Make embedded widget responsive within column */
+.checkout-widget-card iframe { width: 100% !important; max-width: 100%; height: 696px; }
+@media (max-width: 991px) {
+  #checkout-control.checkout-grid,
+  #checkout-ondemand.checkout-grid { grid-template-columns: 1fr; }
+  .checkout-sticky { position: static; }
+}
+
+/* Checkout pages: typography tweaks */
+#checkout-control .modular-h3-heading,
+#checkout-ondemand .modular-h3-heading {
+  /* Reduce by ~25% from base 46px -> ~34.5px */
+  font-size: 34px;
+}
+
+#checkout-control .modular-hero-heading,
+#checkout-ondemand .modular-hero-heading {
+  /* Match the right column heading size */
+  font-size: 34px;
+}
+
+/* Checkout pages: shrink video to 50% of left column */
+#checkout-control .video-16x9,
+#checkout-ondemand .video-16x9 {
+  width: 50%;               /* 50% of left column width */
+  max-width: 480px;         /* cap size on large screens */
+  padding-top: 0;           /* override global padding hack */
+  aspect-ratio: 16 / 9;     /* maintain proper rectangle */
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  #checkout-control .video-16x9,
+  #checkout-ondemand .video-16x9 {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Slight downward adjustment so right title aligns with left title baseline */
+#checkout-control .checkout-widget-card,
+#checkout-ondemand .checkout-widget-card {
+  margin-top: 8px;
+}
+
+/* Control de Peso checkout: make left description + lists smaller (only feature columns) */
+#checkout-control .modular-text-left > p.modular-light-grey-text:not(:first-of-type):not(.checkout-lead),
+#checkout-control .checkout-columns ul.modular-light-grey-text li {
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+/* On‑Demand checkout: apply same 10px treatment to left column (only feature columns) */
+#checkout-ondemand .modular-text-left > p.modular-light-grey-text:not(:first-of-type):not(.checkout-lead),
+#checkout-ondemand .checkout-columns ul.modular-light-grey-text li {
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+/* Checkout pages: multi-column content blocks */
+#checkout-control .checkout-columns,
+#checkout-ondemand .checkout-columns {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+
+/* 3 columns for Control de Peso, and now 3 columns for On‑Demand */
+#checkout-control .checkout-columns.columns-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#checkout-ondemand .checkout-columns.columns-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+#checkout-control .checkout-col p,
+#checkout-ondemand .checkout-col p {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+#checkout-control .checkout-col ul,
+#checkout-ondemand .checkout-col ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-left: 18px; /* ensure bullets have room at small font size */
+}
+
+#checkout-control .checkout-col ul ul,
+#checkout-ondemand .checkout-col ul ul {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-left: 16px; /* nested list indentation */
+  list-style-type: disc;
+}
+
+@media (max-width: 767px) {
+  #checkout-control .checkout-columns.columns-3,
+  #checkout-ondemand .checkout-columns.columns-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Spacing adjustments */
+#checkout-control .checkout-columns,
+#checkout-ondemand .checkout-columns { margin-top: 24px; }
+
+#checkout-control .checkout-lead,
+#checkout-ondemand .checkout-lead { margin-top: 16px; }
+
+#checkout-control .video-16x9,
+#checkout-ondemand .video-16x9 { margin-top: 16px; }
+
+  /* Tutorial grid: text right, video left */
+  #checkout-control .tutorial-grid {
+    display: grid;
+    /* Match one of the three feature columns (1/3) for the video column */
+    grid-template-columns: 1fr 2fr; /* left: video (1fr), right: text (2fr) */
+    gap: 16px;
+    align-items: start;
+    margin-top: 24px; /* more space after feature columns */
+  }
+
+  #checkout-ondemand .tutorial-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) 1fr;
+    gap: 16px;
+    align-items: start;
+    margin-top: 24px; /* more space after feature columns */
+  }
+
+  #checkout-control .tutorial-grid .video-16x9,
+  #checkout-ondemand .tutorial-grid .video-16x9 {
+    width: 100%;
+    max-width: none;
+    margin-top: 0; /* rely on grid gap */
+  }
+
+  #checkout-control .tutorial-grid ol,
+  #checkout-ondemand .tutorial-grid ol {
+    margin-top: 0;          /* align first line with top of video */
+    margin-bottom: 10px;
+    padding-left: 18px;
+  }
+
+  #checkout-control .tutorial-grid ul,
+  #checkout-ondemand .tutorial-grid ul {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    padding-left: 18px;
+  }
+
+  /* Tutorial text compact size */
+  #checkout-control .tutorial-grid .modular-light-grey-text,
+  #checkout-ondemand .tutorial-grid .modular-light-grey-text {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 767px) {
+    #checkout-control .tutorial-grid,
+    #checkout-ondemand .tutorial-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Spacing above 'Tutorial' heading (aligned closer to widget 'Amount to pay') */
+  #checkout-control .tutorial-title,
+  #checkout-ondemand .tutorial-title {
+    margin-top: 24px;
+  }
+
+
+

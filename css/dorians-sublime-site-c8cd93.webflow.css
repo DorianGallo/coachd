@@ -9020,10 +9020,60 @@
     }
   }
 
+  /* Programas y servicios: include links spacing and style */
+  #programas .includes-link { margin: 16px 0; }
+  #programas .includes-link a,
+  #programas .includes-link a:link,
+  #programas .includes-link a:visited,
+  #programas .includes-link a:active {
+    color: #57946e !important;
+    font-weight: 700;
+    text-decoration: none !important;
+  }
+  #programas .includes-link a:hover { text-decoration: none !important; }
+  /* Increase space above the includes link by 1rem (keeping bottom at 16px) */
+  #programas .includes-link { margin-top: calc(16px + 1rem); margin-bottom: 16px; }
+
+  /* Ensure equal spacing around include link and button */
+  #programas .modular-pricing-04-list { margin-bottom: 0; }
+  #programas .modular-pricing-04-list .modular-list-holder { margin-bottom: 0; }
+  #programas .pricing-button-holder { margin-top: 16px; }
+
+  /* Inscripción section: increase spacing between title, text and buttons */
+  #consulta .modular-hero-anim-load-2nd { margin-bottom: 24px; }
+  #consulta .modular-opacity-70-pct p.modular-text.inscripcion { margin-top: 8px; margin-bottom: 24px; }
+  #consulta .modular-hero-anim-load-4th { margin-top: 32px; }
+
+  /* Hero (Programas y servicios): add space between H1 and description */
+  .modular-hero-15-small-content.hero.program .modular-hero-15-title-wrap { margin-bottom: 16px; }
+  .modular-hero-15-small-content.hero.program .modular-hero-heading.hero { margin-bottom: 12px; }
+  .modular-vertical-flex.hero.med-small .modular-hero-15-title-wrap { margin-bottom: 16px; }
+  .modular-vertical-flex.hero.med-small .modular-hero-heading.hero { margin-bottom: 12px; }
+
   /* Spacing above 'Tutorial' heading (aligned closer to widget 'Amount to pay') */
   #checkout-control .tutorial-title,
   #checkout-ondemand .tutorial-title {
     margin-top: 24px;
+  }
+
+  /* Programas y servicios: per-card include-link colors */
+  /* Control de Peso (active card): link text should be white by default */
+  #programas .modular-active-card .includes-link a,
+  #programas .modular-active-card .includes-link a:link,
+  #programas .modular-active-card .includes-link a:visited,
+  #programas .modular-active-card .includes-link a:active {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+  /* Hover color for both cards should be the same green */
+  /* Hover colors: Control de Peso (active) -> green; On‑Demand (regular) -> blue */
+  #programas .modular-active-card .includes-link a:hover {
+    color: #57946e !important;
+    text-decoration: none !important;
+  }
+  #programas .modular-card .includes-link a:hover {
+    color: #4c7a94 !important;
+    text-decoration: none !important;
   }
 
 

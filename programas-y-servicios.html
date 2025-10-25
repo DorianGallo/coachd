@@ -142,7 +142,8 @@
                       <div>
                         <a
                           data-w-id="1bf43b5b-d7e5-5d17-a3ff-f772a91c42db"
-                          href="#"
+                          href="https://forms.fillout.com/t/nvJUx9g6R1us"
+                          target="_blank" rel="noopener"
                           class="modular-button-secondary hero w-inline-block"
                         >
                           <div class="modular-button-2-bg"></div>
@@ -199,7 +200,8 @@
             <div class="div-block-18">
               <a
                 data-w-id="7492977f-ffb8-7ee4-d2ba-475e3e2f067e"
-                href="#"
+                href="https://forms.fillout.com/t/nvJUx9g6R1us"
+                target="_blank" rel="noopener"
                 class="modular-button-secondary hero w-inline-block"
               >
                 <p class="modular-simple-text small-text hero">Saber Más</p>
@@ -224,7 +226,8 @@
                   <div>
                     <a
                       data-w-id="4cbb07c8-806c-8db6-4792-7401b1658db5"
-                      href="#"
+                      href="https://forms.fillout.com/t/nvJUx9g6R1us"
+                      target="_blank" rel="noopener"
                       class="modular-button-secondary w-inline-block"
                     >
                       <p class="modular-simple-text small-text hero">
@@ -920,6 +923,9 @@
                                   </div>
                                 </div>
                               </div>
+                              <p class="modular-light-grey-text includes-link">
+                                <a href="https://drive.google.com/file/d/1oq8_rQQeU9jnv-8S33SH_oKYzU5Qo0BR/view?usp=drive_link" target="_blank" rel="noopener"> Ver todo lo que incluye el programa aqui >>></a>
+                              </p>
                               <div class="pricing-button-holder">
                                 <div>
                                   <a
@@ -1020,6 +1026,9 @@
                                   </div>
                                 </div>
                               </div>
+                              <p class="modular-light-grey-text includes-link">
+                                <a href="https://drive.google.com/file/d/1keW7MRQHB2N6GjyQ0UqVIdQpp4UJG-yp/view?usp=drive_link" target="_blank" rel="noopener">Ver todo lo que incluye el plan aqui >>></a>
+                              </p>
                               <div class="pricing-button-holder">
                                 <div>
                                   <a
@@ -1849,7 +1858,8 @@
                             <div>
                               <a
                                 data-w-id="83126a03-67f1-f89a-1dd9-5865bb75ac11"
-                                href="#"
+                                href="https://forms.fillout.com/t/nvJUx9g6R1us"
+                                target="_blank" rel="noopener"
                                 class="modular-button-secondary modal w-inline-block"
                               >
                                 <p class="modular-simple-text small-text cta">
@@ -1875,7 +1885,8 @@
                           <div class="div-block-18 footer">
                             <a
                               data-w-id="f6d7a1e1-ec59-47b7-9d85-7c98a2ecfaa6"
-                              href="#"
+                              href="https://forms.fillout.com/t/nvJUx9g6R1us"
+                              target="_blank" rel="noopener"
                               class="modular-button-secondary w-inline-block"
                             >
                               <p
@@ -2236,8 +2247,14 @@
         
         // Find all "Saber Más" buttons - be more specific
         const saberMasButtons = Array.from(document.querySelectorAll('a')).filter(link => {
-          const text = link.textContent.trim();
-          return text.includes('Saber Más') || text.includes('Saber más');
+          const text = (link.textContent || '').trim();
+          const hrefAttr = (link.getAttribute('href') || '').trim();
+          const hrefAbs = (link.href || '').trim();
+          const href = hrefAttr || hrefAbs;
+          const isSaberMas = text.includes('Saber Más') || text.includes('Saber más');
+          const isFormLink = href.includes('forms.fillout.com');
+          // Only intercept placeholder links (e.g., '#') and NOT the Fillout form links
+          return isSaberMas && !isFormLink && (href === '' || href === '#');
         });
         
         console.log('Found Saber Más buttons:', saberMasButtons.length);

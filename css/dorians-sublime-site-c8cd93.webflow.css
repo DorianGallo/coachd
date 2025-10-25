@@ -9076,5 +9076,33 @@
     text-decoration: none !important;
   }
 
+  /* Tablet-only hero spacing (Programas y servicios): cut top and bottom gaps by 50% */
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    /* Reduce top space above title */
+    .modular-vertical-flex.hero.med-small { padding-top: 1em; }
+    /* Reduce bottom space below the hero CTA */
+    .modular-container.hero.small { padding-bottom: 1em; }
+    /* Move the hero text block up by 5rem and reduce space below by 2rem */
+    .modular-container.hero.small .modular-vertical-flex.hero.med-small {
+      margin-top: -10rem !important;
+      margin-bottom: -2rem !important;
+    }
+  }
+
+  /* Mobile-only fixes (Programas y servicios) */
+  @media screen and (max-width: 767px) {
+    /* Keep original hero height so layout isn't compressed */
+    .modular-hero-15-small-content.hero.program { height: 90vh; }
+    /* Ensure top hero overlay block stays hidden on mobile */
+    .modular-hero-wrapper .modular-grid-relative-content { display: none !important; }
+    /* Reduce the space below the secondary hero CTA by ~50% */
+    .modular-container.hero.small { padding-bottom: 1em; }
+    /* Move the hero text block up by 2rem and pull next section up by 2rem */
+    .modular-container.hero.small .modular-vertical-flex.hero.med-small {
+      margin-top: -4rem !important;  /* remove 4rem above total */
+      margin-bottom: 1rem !important; /* keep 1rem below */
+    }
+  }
+
 
 

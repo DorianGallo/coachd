@@ -8480,6 +8480,11 @@
     margin-top: 1em;
   }
 
+  /* Remove border radius from pagos cards */
+  .modular-features-09-grid-boxes.pagos .modular-features-08-item {
+    border-radius: 0 !important;
+  }
+
   .modular-features-09-grid-boxes {
     grid-column-gap: 3em;
     grid-row-gap: 3em;
@@ -8490,6 +8495,27 @@
     grid-row-gap: 4.1em;
     grid-auto-flow: row;
     margin-top: 5em;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Add padding to pagos container for alignment */
+  .modular-container.footer {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Remove any padding from pagos cards that might prevent full width */
+  .modular-features-09-grid-boxes.pagos .modular-grid-content {
+    padding-right: 0 !important;
+  }
+
+  /* Add padding to text inside pagos cards */
+  .modular-features-09-grid-boxes.pagos .modular-features-08-item {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
   }
 
   .kutup-footer-horizontal-flex {
@@ -9076,6 +9102,84 @@
     text-decoration: none !important;
   }
 
+  /* Inscripciones: 3-step paired layout */
+  #inscripcion .ins-right .modular-h3-heading { display: none; }
+  #inscripcion .ins-left .ins-mobile-text { display: none; }
+  /* Title size: match mobile scale across all breakpoints */
+  #inscripcion .ins-left .modular-h3-heading { font-size: 24px !important; line-height: 1.2; }
+  /* Desktop/tablet: top-align the right-card paragraph with the left title */
+  #inscripcion .ins-right.ins-text-only .modular-services-03-item-content { display: flex; align-items: flex-start; height: 100%; padding-top: 0 !important; }
+  /* Remove any extra spacing introduced by empty subtitle/heading blocks */
+  #inscripcion .ins-right .modular-subtitle { display: none !important; }
+  #inscripcion .ins-right .modular-margin-top-xs { margin-top: 0 !important; }
+  /* Align the first line of the right paragraph with the left title top */
+  #inscripcion .ins-right.ins-text-only .modular-hero-anim-load-3rd { margin-top: 0; }
+  #inscripcion .ins-right.ins-text-only p.modular-text { margin-top: 0 !important; }
+
+  /* Desktop-only fine nudge: raise the right text ~1 line to match the title baseline */
+  @media screen and (min-width: 992px) {
+    #inscripcion .ins-right.ins-text-only .modular-hero-anim-load-3rd { margin-top: -0.6rem; }
+  }
+
+  /* Tablet (768–991px): two-column section (header left, steps right) with single-card per step */
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    /* Hide right-side text-only cards; show text inside the left card */
+    #inscripcion .ins-right, #inscripcion .modular-services-03-item.ins-right { display: none !important; }
+    #inscripcion .ins-left .ins-mobile-text { display: block !important; }
+    /* Force main grid visible as two columns: left header, right steps */
+    #inscripcion.modular-services-03-main-grid.inscripcion { display: grid !important; grid-template-columns: 1fr 1fr !important; margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+    /* Keep sticky behavior neutral (relative) to match prior layout */
+    #inscripcion .modular-sticky-content { position: relative !important; top: auto !important; }
+    /* Reduce space between steps */
+    #inscripcion .modular-services-03-grid-boxes { grid-row-gap: 2em; }
+    /* Hide legacy 6-card stack on tablet as well */
+    .proceso-inscripcion.pasos, .proceso-inscripcion.pasos._1 { display: none !important; }
+  }
+
+  /* Mobile (≤767px): collapse to single column with title+text in one card */
+  @media (max-width: 767px) {
+    /* On mobile, collapse to 3 cards: hide right side cards and show text within left */
+    #inscripcion .ins-right, #inscripcion .modular-services-03-item.ins-right { display: none !important; }
+    #inscripcion .ins-left .ins-mobile-text { display: block !important; }
+    /* Remove the duplicate left header column inside the grid */
+    #inscripcion .modular-grid-content.modular-grid-content-relative.pasos { display: none !important; }
+  /* Force main grid visible as single column and remove side offsets */
+  #inscripcion.modular-services-03-main-grid.inscripcion { display: grid !important; grid-template-columns: 1fr !important; margin-left: 0 !important; margin-right: 0 !important; padding-left: 0.5em !important; padding-right: 0.5em !important; padding-bottom: 1.5em !important; place-items: start stretch !important; }
+    /* Disable sticky header on mobile so content flows naturally */
+    #inscripcion .modular-sticky-content { position: static !important; top: auto !important; }
+  /* Tighten spacing between cards a bit more */
+  #inscripcion .modular-services-03-grid-boxes { grid-row-gap: 1.5em; }
+  /* Reset inner content margins so outer margins control rhythm */
+  #inscripcion .modular-services-03-item-content { margin-top: 0 !important; margin-bottom: 0 !important; }
+  #inscripcion .modular-services-03-item-content > .modular-hero-anim-load-1st,
+  #inscripcion .modular-services-03-item-content > .modular-hero-anim-load-2nd,
+  #inscripcion .modular-services-03-item-content > .modular-hero-anim-load-3rd { margin-top: 0 !important; margin-bottom: 0 !important; }
+  /* Remove any stray top bump from tiny spacer class */
+  #inscripcion .modular-margin-top-xs { margin-top: 0 !important; }
+  /* Ensure the empty right-card wrappers do not create extra blank space */
+  /* Robust selector that doesn't rely on :has support */
+  #inscripcion .modular-services-03-grid-boxes > .modular-grid-content:nth-child(even) { display: none !important; }
+  /* Also hide via :has when supported (no harm if ignored) */
+  #inscripcion .modular-grid-content:has(> .modular-services-03-item.ins-right) { display: none !important; }
+  /* Make all three step cards share identical top/bottom margins */
+  #inscripcion .modular-services-03-grid-boxes .modular-services-03-item.ins-left { margin-top: 16px !important; margin-bottom: 16px !important; }
+  /* Prevent duplicate extra spacing above the very first card */
+  #inscripcion .modular-services-03-grid-boxes .modular-services-03-item.ins-left:first-of-type { margin-top: 16px !important; }
+  /* Ensure last card does not leave extra gap below */
+  #inscripcion .modular-services-03-grid-boxes .modular-services-03-item.ins-left:last-of-type { margin-bottom: 16px !important; }
+  /* Normalize spacing after the third card to standard section rhythm */
+  #inscripcion .modular-services-03-grid-boxes { margin-bottom: 1.5em !important; }
+    /* Hide legacy 6-card stack above the grid on small screens */
+    .proceso-inscripcion.pasos, .proceso-inscripcion.pasos._1 { display: none !important; }
+  }
+
+  /* Extra-small phones: make step spacing even tighter */
+  @media (max-width: 767px) {
+    #inscripcion .modular-services-03-grid-boxes { grid-row-gap: 1.5em; }
+    /* Ensure the grid remains visible on small phones too */
+    #inscripcion.modular-services-03-main-grid.inscripcion { display: grid !important; grid-template-columns: 1fr; }
+  }
+
   /* Tablet-only hero spacing (Programas y servicios): cut top and bottom gaps by 50% */
   @media screen and (min-width: 768px) and (max-width: 991px) {
     /* Reduce top space above title */
@@ -9103,6 +9207,149 @@
       margin-bottom: 1rem !important; /* keep 1rem below */
     }
   }
+
+
+
+
+/* Inscripciones — Mobile spacing override: unify gaps using grid only */
+@media (max-width: 767px) {
+  /* Mobile: keep the main header block visible, hide only the old step items */
+  .proceso-inscripcion.pasos, .proceso-inscripcion.pasos._1 { display: none !important; }
+  
+  /* Add padding to pasos a seguir container for proper alignment */
+  .modular-container.pasos {
+    padding-left: 2.25rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  /* Remove extra left margin from pasos a seguir header - use container padding */
+  .modular-container.pasos .proceso-inscripcion {
+    margin-left: 0 !important;
+  }
+
+  /* Single source of spacing: grid gap only */
+  #inscripcion .modular-services-03-grid-boxes {
+    display: grid;
+    row-gap: 20px !important;      /* identical space between all cards */
+    grid-row-gap: 20px !important; /* ensure alias also set */
+    margin-bottom: 0 !important;    /* no extra space after last card */
+    padding-bottom: 0 !important;   /* avoid internal bottom padding */
+  }
+
+  /* Remove any margins/padding on the immediate grid children wrappers */
+  #inscripcion .modular-services-03-grid-boxes > .modular-grid-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hard reset for any other direct children that might sneak margins */
+  #inscripcion .modular-services-03-grid-boxes > * {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Remove per-card margins so the row-gap controls rhythm */
+  #inscripcion .modular-services-03-item.ins-left { margin: 0 !important; }
+
+  /* Remove internal offsets within each card */
+  #inscripcion .modular-services-03-item.ins-left .modular-services-03-item-content {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  #inscripcion .modular-services-03-item.ins-left .modular-hero-anim-load-1st,
+  #inscripcion .modular-services-03-item.ins-left .modular-hero-anim-load-2nd,
+  #inscripcion .modular-services-03-item.ins-left .modular-hero-anim-load-3rd { margin: 0 !important; }
+
+  /* Normalize heading/paragraph margins inside each card */
+  #inscripcion .modular-services-03-item.ins-left .modular-h3-heading,
+  #inscripcion .modular-services-03-item.ins-left p.modular-text,
+  #inscripcion .modular-services-03-item.ins-left .ins-mobile-text {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Ensure no trailing margin on the last piece of content within a card */
+  #inscripcion .modular-services-03-item.ins-left .modular-services-03-item-content > :last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Prevent the blue background from altering perceived gaps */
+  #inscripcion .modular-services-03-item.ins-left .modular-services-03-bg.block-1._1 { inset: 0 !important; }
+
+  /* Standard section padding above the first card and after the third */
+  #inscripcion.modular-services-03-main-grid.inscripcion {
+    padding-top: 16px !important;
+    padding-bottom: 12px !important; /* 50% smaller than before */
+  }
+
+  /* Cut the section container's default large bottom padding on mobile */
+  .modular-container.modular-container-on-bg.inscripcion {
+    padding-bottom: 12px !important;
+  }
+}
+
+/* Hide mobile cards by default (tablet/desktop) - only show on mobile */
+.inscripcion-mobile-cards {
+  display: none !important;
+}
+
+/* Mobile-only: replace legacy grid with rebuilt cards */
+@media (max-width: 767px) {
+  /* Hide entire legacy grid structure on mobile */
+  #inscripcion.modular-services-03-main-grid.inscripcion { display: none !important; }
+  #inscripcion .modular-grid-content { display: none !important; }
+  #inscripcion .modular-services-03-grid-boxes { display: none !important; }
+
+  /* Show rebuilt cards - aligned with container padding */
+  .inscripcion-mobile-cards {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    row-gap: 3rem;           /* 3rem margin between cards */
+    grid-row-gap: 3rem;
+    padding: 0 !important;
+    margin: 1rem -0.25rem 0 -0.35rem !important;  /* removed 0.5rem from right (was 0.25rem, now -0.25rem) */
+    width: calc(100% + 0.25rem) !important;  /* adjust width to compensate */
+    max-width: calc(100% + 0.25rem) !important;
+    box-sizing: border-box;
+  }
+
+  /* Card base styles */
+  .inscripcion-mobile-cards .ins-card {
+    background: #ffffff;
+    padding: 1rem;  /* restored to original 1rem all sides */
+    margin: 0;               /* no margin - spacing handled by grid gap */
+    border-radius: 0;
+    border: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* Card 1: keep same background color and white text */
+  .inscripcion-mobile-cards .ins-card-1 {
+    background-color: #4c7a94; /* matches legacy card 1 */
+    color: #ffffff;
+    padding-bottom: 3rem !important; /* 2rem extra bottom padding */
+  }
+  .inscripcion-mobile-cards .ins-card-1 .modular-subtitle,
+  .inscripcion-mobile-cards .ins-card-1 .modular-h3-heading,
+  .inscripcion-mobile-cards .ins-card-1 .modular-text { color: #ffffff; }
+
+  /* Cards 2 and 3: bordered with same color as card 1 background */
+  .inscripcion-mobile-cards .ins-card-2,
+  .inscripcion-mobile-cards .ins-card-3 {
+    border: 1px solid #4c7a94;
+    background: #ffffff;
+  }
+
+  /* Internal spacing: consistent and compact */
+  .inscripcion-mobile-cards .ins-card .modular-subtitle { margin: 0 0 8px !important; }
+  .inscripcion-mobile-cards .ins-card .modular-h3-heading { margin: 0 0 8px !important; font-size: 22px; line-height: 1.25; }
+  .inscripcion-mobile-cards .ins-card .modular-text { margin: 0 0 8px !important; } /* add bottom margin to text */
+  .inscripcion-mobile-cards .ins-card .modular-text:last-child { margin-bottom: 0 !important; } /* remove margin from last element */
+}
 
 
 

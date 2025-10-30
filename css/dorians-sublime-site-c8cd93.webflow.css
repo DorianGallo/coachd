@@ -8486,7 +8486,8 @@
   }
 
   .modular-features-09-grid-boxes {
-    grid-column-gap: 3em;
+    
+  }    grid-column-gap: 3em;
     grid-row-gap: 3em;
     grid-template-columns: 1fr;
   }

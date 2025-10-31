@@ -2351,9 +2351,16 @@
   grid-row-gap: 1em;
   background-color: #f3f7fa;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center; /* Center children horizontally */
   padding-left: 0;
   padding-right: 0;
+}
+
+/* Center text in feature cards (libertad/flexibilidad/vitalidad) */
+.modular-features-02-content.features h3.modular-h3-heading,
+.modular-features-02-content.features p.modular-light-grey-text.small {
+  text-align: center;
+  width: 100%;
 }
 
 .modular-feature-02-item {
@@ -4718,6 +4725,12 @@
 .proceso-inscripcion {
   color: #fff;
   display: none;
+}
+
+/* Hide old 7-step inscripciones cards globally (all screen sizes) */
+.proceso-inscripcion.pasos,
+.proceso-inscripcion.pasos._1 {
+  display: none !important;
 }
 
 .div-block-18.footer, .div-block-19, .div-block-21, .terms-of-service-sm {
@@ -8486,8 +8499,7 @@
   }
 
   .modular-features-09-grid-boxes {
-
-  }    grid-column-gap: 3em;
+    grid-column-gap: 3em;
     grid-row-gap: 3em;
     grid-template-columns: 1fr;
   }

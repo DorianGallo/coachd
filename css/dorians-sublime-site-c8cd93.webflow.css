@@ -9478,14 +9478,11 @@
 
 /* Fix overflow on medium screens: from ~985px up to ~1200px (Nest Hub range) */
 @media screen and (min-width: 985px) and (max-width: 1200px) {
+  /* Switch pagos grid from 4 columns to 2 columns to fit narrower screens */
   .modular-features-09-grid-boxes.pagos {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  
-  .modular-features-02.inscripcion {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
   }
 }
 

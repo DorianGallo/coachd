@@ -8630,9 +8630,11 @@
 
   .div-block-18 {
     flex-flow: column;
-    width: 100%;
+    width: auto; /* Changed from 100% to auto - button should size to content */
+    max-width: 300px; /* Limit button width on tablets */
     padding: 0 .5em;
     display: flex;
+    align-self: center; /* Center the button container */
   }
 
   .div-block-18.footer {

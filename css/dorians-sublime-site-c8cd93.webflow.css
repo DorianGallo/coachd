@@ -9320,6 +9320,42 @@
   }
 }
 
+/* Checkout: Help contact card - positioned to match tutorial text column */
+#checkout-control .checkout-help-card {
+  margin-top: 24px;
+  margin-bottom: 1.5rem;
+  margin-left: calc(33.33% + 8px); /* 1fr out of 3fr + half gap */
+  padding: 1.25rem;
+  background-color: #f8f8f8;
+  border: 2px solid #57946e;
+  border-radius: 10px;
+  width: auto;
+}
+
+#checkout-ondemand .checkout-help-card {
+  margin-top: 24px;
+  margin-bottom: 1.5rem;
+  margin-left: calc(44.44% + 8px); /* 0.8fr out of 1.8fr + half gap */
+  padding: 1.25rem;
+  background-color: #f8f8f8;
+  border: 2px solid #57946e;
+  border-radius: 10px;
+  width: auto;
+}
+
+.checkout-help-card p {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+@media (max-width: 767px) {
+  #checkout-control .checkout-help-card,
+  #checkout-ondemand .checkout-help-card {
+    margin-left: 0;
+  }
+}
+
 /* Checkout: Trust badges side by side after tutorial */
 .trust-badges-row {
   display: flex;

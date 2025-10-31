@@ -9476,8 +9476,8 @@
   .inscripcion-mobile-cards .ins-card .modular-text:last-child { margin-bottom: 0 !important; } /* remove margin from last element */
 }
 
-/* Fix overflow on medium screens (Nest Hub ~1024px to ~1200px) */
-@media screen and (min-width: 992px) and (max-width: 1200px) {
+/* Fix overflow on medium screens: from ~985px up to ~1200px (Nest Hub range) */
+@media screen and (min-width: 985px) and (max-width: 1200px) {
   .modular-features-09-grid-boxes.pagos {
     padding-left: 0 !important;
     padding-right: 0 !important;

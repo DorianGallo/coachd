@@ -8496,21 +8496,6 @@
     grid-row-gap: 4.1em;
     grid-auto-flow: row;
     margin-top: 5em;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-right: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  /* Add padding to pagos container for alignment */
-  .modular-container.footer {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-
-  /* Remove any padding from pagos cards that might prevent full width */
-  .modular-features-09-grid-boxes.pagos .modular-grid-content {
-    padding-right: 0 !important;
   }
 
   /* Add padding to text inside pagos cards */

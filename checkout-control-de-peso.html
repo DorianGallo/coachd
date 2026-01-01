@@ -116,7 +116,23 @@ cv<!DOCTYPE html>
             <h3 class="modular-h3-heading">Pagar ahora</h3>
             <p class="modular-light-grey-text small">Completa el pago seguro con criptomonedas.</p>
             
-            <iframe src="https://nowpayments.io/embeds/payment-widget?iid=5389989102" width="410" height="696" frameborder="0" scrolling="no" style="overflow-y: hidden;">Can't load widget</iframe>
+            <div id="helioCheckoutContainer"></div>
+
+            <script type="module" crossorigin src="https://embed.hel.io/assets/index-v1.js"></script>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                window.helioCheckout(
+                  document.getElementById("helioCheckoutContainer"),
+                  {
+                    paylinkId: "695699f07c394d6d5d4b2cdb",
+                    theme: {"themeMode":"light"},
+                    primaryColor: "#57946e",
+                    neutralColor: "#f3f7fa",
+                  }
+                );
+              });
+            </script>
           </div>
         </aside>
       </div>

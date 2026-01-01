@@ -9064,7 +9064,15 @@
 
   /* Tutorial text compact size */
   #checkout-control .tutorial-grid .modular-light-grey-text,
-  #checkout-ondemand .tutorial-grid .modular-light-grey-text {
+  #checkout-ondemand .tutorial-grid .modular-light-grey-text,
+  #checkout-control .modular-text-left > ol.modular-light-grey-text,
+  #checkout-control .modular-text-left > ol.modular-light-grey-text li,
+  #checkout-control .modular-text-left > ol.modular-light-grey-text ul.modular-light-grey-text,
+  #checkout-control .modular-text-left > ol.modular-light-grey-text ul.modular-light-grey-text li,
+  #checkout-ondemand .modular-text-left > ol.modular-light-grey-text,
+  #checkout-ondemand .modular-text-left > ol.modular-light-grey-text li,
+  #checkout-ondemand .modular-text-left > ol.modular-light-grey-text ul.modular-light-grey-text,
+  #checkout-ondemand .modular-text-left > ol.modular-light-grey-text ul.modular-light-grey-text li {
     font-size: 10px;
     line-height: 1.4;
   }

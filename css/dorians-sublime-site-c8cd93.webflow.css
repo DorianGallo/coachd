@@ -8853,11 +8853,35 @@
     box-shadow: inset 0 0 0 2px #fff !important;
   }
 
-  /* Center and space two-card layout in Programas y servicios */
-  @media screen and (min-width: 992px) {
+  /* Three-card layout in Programas y servicios: desktop + laptop + large tablets */
+  @media screen and (min-width: 768px) {
     #programas .modular-pricing-04-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      justify-content: center; /* center the two columns within container */
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      justify-content: center;
+      grid-column-gap: 1.25em;
+    }
+  }
+
+  /* Smaller tablets & mobile: single column */
+  @media screen and (max-width: 767px) {
+    #programas .modular-pricing-04-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* Tighten card internal spacing on tablets (768-991px) so 3 cards fit well */
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    #programas .modular-pricing-04-item,
+    #programas .modular-pricing-04-item.highlight {
+      padding: 1.25em 1em;
+    }
+    #programas .modular-text-l,
+    #programas .modular-text-l.main {
+      font-size: 1.1em;
+    }
+    #programas .modular-text.main.programas,
+    #programas .modular-text.secondary.programa {
+      font-size: 0.85em;
     }
   }
 

@@ -184,7 +184,7 @@
             <div class="div-block-18">
               <a
                 data-w-id="7492977f-ffb8-7ee4-d2ba-475e3e2f067e"
-                href="https://tienda.coachdmethod.com"
+                href="https://forms.fillout.com/t/nvJUx9g6R1us"
                 target="_blank" rel="noopener"
                 class="modular-button-secondary hero w-inline-block"
               >
@@ -210,7 +210,7 @@
                   <div>
                     <a
                       data-w-id="4cbb07c8-806c-8db6-4792-7401b1658db5"
-                      href="https://tienda.coachdmethod.com"
+                      href="https://forms.fillout.com/t/nvJUx9g6R1us"
                       target="_blank" rel="noopener"
                       class="modular-button-secondary w-inline-block"
                     >
@@ -1002,7 +1002,7 @@
                               <p class="modular-text-l modular-color-inherit">Historia de las Dietas<br> Bajas en Carbohidratos</p>
                               <div class="modular-pricing-04-price-holder"><p class="modular-text-l modular-color-inherit">$0</p></div>
                               <div style="margin: 10px 0; text-align: center;">
-                                <span class="modular-text secondary" style="background: rgba(255,255,255,0.9); color: #333333; padding: 6px 12px; border-radius: 6px; font-weight: 600;">💵 Acceso gratis para siempre</span>
+                                <span class="modular-text secondary" style="background: rgba(255,255,255,0.9); color: #333333; padding: 6px 12px; border-radius: 6px; font-weight: 600;">💵 Gratis para siempre - Acceso immediato</span>
                               </div>
                               <div class="pricing-features-holders">
                                 <p class="modular-text secondary programa">Descubre el origen y los pioneros de la la revolución low carb en esta introducción gratuita a la historia de las dietas low carb.</p>
@@ -1189,8 +1189,6 @@
 
             </div>
           </div>
-        </div>
-      </div>
       <div mdlfy-content="component" class="modular-services-wrapper">
         <div class="modular-services-06">
           <div class="modular-section">
@@ -1862,19 +1860,19 @@
                     id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c4537-39969538"
                     class="modular-grid-content modular-grid-content-relative"
                   >
-                                          <div class="modular-features-09-content header inscripcion">
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; width: 100%; gap: 20px;">
+                                          <div class="modular-features-09-content header inscripcion" style="width: 100%; max-width: 100%;">
                       <h2 class="modular-h2-heading">Pagos seguros</h2>
                       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px;">
                         <p class="modular-light-grey-text payment" style="flex: 1 1 300px; min-width: 0;">
                           La seguridad de tus transacciones es esencial para nosotros. Usamos servicios reconocidos mundialmente por su seguridad y privacidad para asegurar que tu información financiera se mantenga protegida en todo momento.
                         </p>
-                                                <div style="flex: 1 1 300px; min-width: 0; text-align: center; margin-top: 1em;">
-                          <img src="images/bitcoin-accepted-badge.png" alt="Bitcoin aceptado aquí" style="width: 45%; max-width: 200px; height: auto; margin: 0.5em;" />
-                          <img src="images/Paypal.png" alt="PayPal, Visa y MasterCard aceptados" style="width: 45%; max-width: 200px; height: auto; margin: 0.5em;" />
+                        <div style="flex: 1 1 300px; min-width: 0; display: flex; align-items: center; justify-content: space-around; gap: 20px;">
+                          <img src="images/bitcoin-accepted-badge.png" alt="Bitcoin aceptado aquí" style="max-height: 100px; width: auto; object-fit: contain; max-width: 45%;" />
+                          <img src="images/Paypal.png" alt="PayPal, Visa y MasterCard aceptados" style="max-height: 100px; width: auto; object-fit: contain; max-width: 45%;" />
                         </div>
                       </div>
                     </div>
-                  </div>
                   <div
                     id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c453d-39969538"
                     class="modular-grid-content"
@@ -1979,7 +1977,7 @@
                             <div>
                               <a
                                 data-w-id="83126a03-67f1-f89a-1dd9-5865bb75ac11"
-                                href="https://tienda.coachdmethod.com"
+                                href="https://forms.fillout.com/t/nvJUx9g6R1us"
                                 target="_blank" rel="noopener"
                                 class="modular-button-secondary modal w-inline-block"
                               >

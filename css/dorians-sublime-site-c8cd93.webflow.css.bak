@@ -9547,8 +9547,9 @@
   object-fit: contain;
 }
 
-/* ==== Pagos seguros ≤991px — v6 (scoped to #pagos). FINAL ==== */
+/* ==== Pagos seguros ≤991px — v5 (scoped to #pagos). FINAL ==== */
 @media screen and (max-width: 991px) {
+  /* Release desktop fixed height/padding: kills voids inside the header cell */
   #pagos .modular-grid-content.modular-grid-content-relative,
   #pagos .modular-features-09-content.header.inscripcion {
     position: static;
@@ -9557,16 +9558,12 @@
     padding-top: 1em;
     padding-bottom: 0;
   }
-  /* Full-width header ONLY below 992px (replaces the removed inline style) */
-  #pagos .modular-features-09-content.header.inscripcion {
-    width: 100%;
-    max-width: 100%;
-  }
   #pagos .modular-features-09-main-grid.pagos {
     grid-template-rows: auto;
     grid-auto-rows: auto;
     grid-row-gap: 1.5em;
   }
+  /* Stack: title -> paragraph -> badge row */
   #pagos .modular-features-09-content.header.inscripcion > div {
     flex-direction: column;
     align-items: stretch;
@@ -9575,6 +9572,7 @@
     flex: 0 0 auto !important;
     width: 100%;
   }
+  /* Badge row: two identical 50% columns, each badge centered in its own column */
   #pagos .modular-features-09-content.header.inscripcion > div > div {
     flex: 0 0 auto !important;
     width: 100%;
@@ -9591,22 +9589,26 @@
     margin: 0 !important;
     justify-self: center;
   }
+  /* Cards sit closer below the badges (only padding touched — template stays native) */
   #pagos .modular-features-09-grid-boxes.pagos {
     padding-top: 0;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
+  /* Optical centering: shift badge pair left */
   #pagos .modular-features-09-content.header.inscripcion > div > div {
     padding-right: 4rem;
   }
 }
 @media screen and (min-width: 480px) and (max-width: 767px) {
+  /* Cells span the full container at this bucket (exported rules give them span 1) */
   #pagos #w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c4537-39969538,
   #pagos #w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c453d-39969538 {
     grid-column: 1 / -1 !important;
     width: 100% !important;
     justify-self: stretch !important;
   }
+  /* Re-anchor the grid to the container: fixes the left-margin drift */
   #pagos .modular-features-09-main-grid.pagos {
     width: 100%;
     max-width: 100%;
@@ -9619,12 +9621,10 @@
   }
 }
 @media screen and (max-width: 479px) {
+  /* Phones: one badge per row, centered, nudged left */
   #pagos .modular-features-09-content.header.inscripcion > div > div {
     grid-template-columns: minmax(0, 1fr);
     grid-row-gap: 1em;
-    transform: translateX(-2rem);   /* ← mobile badge nudge knob */
+    transform: translateX(-2rem);   /* ← knob: adjust -2rem as needed */
   }
 }
-
-
-

@@ -1002,7 +1002,7 @@
                               <p class="modular-text-l modular-color-inherit">Historia de las Dietas<br> Bajas en Carbohidratos</p>
                               <div class="modular-pricing-04-price-holder"><p class="modular-text-l modular-color-inherit">$0</p></div>
                               <div style="margin: 10px 0; text-align: center;">
-                                <span class="modular-text secondary" style="background: rgba(255,255,255,0.9); color: #333333; padding: 6px 12px; border-radius: 6px; font-weight: 600;">💵 Acceso gratis para siempre</span>
+                                <span class="modular-text secondary" style="background: rgba(255,255,255,0.9); color: #333333; padding: 6px 12px; border-radius: 6px; font-weight: 600;">💵 Gratis para siempre - Acceso immediato</span>
                               </div>
                               <div class="pricing-features-holders">
                                 <p class="modular-text secondary programa">Descubre el origen y los pioneros de la la revolución low carb en esta introducción gratuita a la historia de las dietas low carb.</p>
@@ -1862,7 +1862,7 @@
                     id="w-node-_1bf43b5b-d7e5-5d17-a3ff-f772a91c4537-39969538"
                     class="modular-grid-content modular-grid-content-relative"
                   >
-                                          <div class="modular-features-09-content header inscripcion">
+                                          <div class="modular-features-09-content header inscripcion" style="width: 100%; max-width: 100%;">
                       <h2 class="modular-h2-heading">Pagos seguros</h2>
                       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px;">
                         <p class="modular-light-grey-text payment" style="flex: 1 1 300px; min-width: 0;">

@@ -9625,6 +9625,42 @@
     transform: translateX(-2rem);   /* ← mobile badge nudge knob */
   }
 }
-
+/* ==== Pagos seguros ≥992px: paragraph left column + badges centered in right column (50/50). Desktop/laptop only. ==== */
+@media screen and (min-width: 992px) {
+  #pagos .modular-features-09-content.header.inscripcion {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Beat the inline flex-basis:300px so the row NEVER wraps at desktop */
+  #pagos .modular-features-09-content.header.inscripcion > div > p {
+    flex: 1 1 0 !important;
+    min-width: 0;
+  }
+  #pagos .modular-features-09-content.header.inscripcion > div > div {
+    flex: 1 1 0 !important;
+    min-width: 0;
+    margin-top: 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    justify-items: center;
+    align-items: center;
+  }
+  #pagos .modular-features-09-content.header.inscripcion > div > div img {
+    width: auto !important;
+    max-width: 220px !important;
+    height: auto;
+    margin: 0 !important;
+    justify-self: center;
+  }
+}
+/* ==== Pagos seguros ≥992px: paragraph fills its column edge-to-edge (badges untouched) ==== */
+@media screen and (min-width: 992px) {
+  #pagos .modular-features-09-content.header.inscripcion > div > p {
+    max-width: none !important;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
 
 
